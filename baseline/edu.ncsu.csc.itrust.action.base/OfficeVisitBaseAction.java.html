@@ -1,0 +1,2120 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>OfficeVisitBaseAction.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.action.base;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.dao.DAOFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.dao.mysql.OfficeVisitDAO;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.exception.iTrustException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * An abstract class which contains functionalities common among all actions relating to inserting and editing</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * office visits. Because all office visits are with a certain patient, OfficeVisitBaseAction extends</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * PatientBaseAction.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Use this class whenever you have a page which not only requires a patient MID, but an office visit ID. Pass</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * those IDs to the constructor, and an exception will be thrown if they are not valid IDs (which should kick</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * the user out to the home page).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The concrete methods created by this class allow for its association with the unique identifier of a given</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * office visit. These identifiers can also be verified for their correctness and existence.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Very similar to {@link PatientBaseAction} and {@link PersonnelBaseAction}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>abstract public class OfficeVisitBaseAction extends PatientBaseAction {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private static final long UNSAVED_VISIT_ID = -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * A database access object for dealing with office visits.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private OfficeVisitDAO ovDAO;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * The unique identifier of the office visit this action is associated with.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;protected long ovID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * The default constructor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param factory</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            A database access object factory for supplying a runtime context.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param pidString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The patient&#39;s MID as a String, to be passed to the super constructor (for PatientBaseAction)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param ovIDString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The unique identifier of the office visit as a String.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws iTrustException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *             If any of the supplied parameters is incorrect or there is a DB problem.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public OfficeVisitBaseAction(DAOFactory factory, String pidString, String ovIDString)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;throws iTrustException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_48'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;super(factory, pidString);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_49'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.ovDAO = factory.getOfficeVisitDAO();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_50'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.ovID = checkOfficeVisitID(ovIDString);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_51'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Constructs an action that is initially unsaved.  Like the three-argument </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * constructor except that the office visit id is a sentinel value and does </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * not represent a valid office visit.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param factory</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param pidString</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws iTrustException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public OfficeVisitBaseAction(DAOFactory factory, String pidString)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;throws iTrustException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_65'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;super(factory, pidString);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_66'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.ovDAO = factory.getOfficeVisitDAO();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.ovID = UNSAVED_VISIT_ID;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_68'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Asserts whether this unique office visit identifier both exists and is associated with the patient in</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * the database.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param input</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The presumed identifier as a String.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return The same identifier as a long of the existing office visit.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws iTrustException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *             If the visit does not exist or if there is a DB problem.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private long checkOfficeVisitID(String input) throws iTrustException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_82'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;encode(input);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_83'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;long ovID = Long.valueOf(input);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_85'>1</a>
+<span>
+
+1. checkOfficeVisitID : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if (ovDAO.checkOfficeVisitExists(ovID, pid))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_86'>1</a>
+<span>
+
+1. checkOfficeVisitID : replaced return of long value with value + 1 for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::checkOfficeVisitID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;&#9;return ovID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;else</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;throw new iTrustException(&#34;Office Visit &#34; + ovID + &#34; with Patient MID &#34; + pid</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_89'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;&#9;&#9;+ &#34; does not exist&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_90'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;} catch (NumberFormatException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_91'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;throw new iTrustException(&#34;Office Visit ID is not a number: &#34; + e.getMessage());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Indicates if the office visit has been saved or not.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return boolean that indicates if this has been saved. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean isUnsaved() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_100'>3</a>
+<span>
+
+1. isUnsaved : negated conditional &rarr; KILLED<br/>
+
+2. isUnsaved : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+3. isUnsaved : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return ovID == UNSAVED_VISIT_ID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Raises an exception if the office visit has not been saved.  Otherwise, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * does nothing. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws iTrustException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;protected void verifySaved() throws iTrustException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_109'>1</a>
+<span>
+
+1. verifySaved : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (isUnsaved()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_110'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;throw new iTrustException(&#34;Cannot perform action.  OfficeVisit is not saved.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_114'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * For obtaining the unique identifier of the office visit this action is associated with.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return A long of the identifier.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public long getOvID() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_120'>1</a>
+<span>
+
+1. getOvID : replaced return of long value with value + 1 for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::getOvID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return ovID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Converts all characters of the input string to their HTML special characters equivalent representation.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Explicitly, the less than symbol becomes lt, the greater than symbol becomes gt and a newline feed</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * becomes br.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param input</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The string to encode.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return The encoded string.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String encode(String input) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_133'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;String str = input.replaceAll(&#34;&#60;&#34;, &#34;&#38;lt;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_134'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;str = str.replaceAll(&#34;&#62;&#34;, &#34;&#38;gt;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_135'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;str = str.replaceAll(&#34;\n&#34;, &#34;&#60;br /&#62;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_136'/>
+136
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_136'>1</a>
+<span>
+
+1. encode : mutated return of Object value for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::encode to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return str;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7ed4a172_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkOfficeVisitID<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkOfficeVisitID<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> replaced return of long value with value + 1 for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::checkOfficeVisitID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isUnsaved<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isUnsaved<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isUnsaved<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>verifySaved<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testDeleteImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getOvID<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testDeleteImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest)</span></span> replaced return of long value with value + 1 for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::getOvID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7ed4a172_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7ed4a172_136'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>encode<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/action/base/OfficeVisitBaseAction::encode to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testGetDiagnosisCodes(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (377 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testEvilDatabase(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (187 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabTechs(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (316 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testGetMedications(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (415 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testEditPatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (406 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testGetImmunizationCodes(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (326 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testGetPatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (345 ms)</li><li>edu.ncsu.csc.itrust.action.EditReferralsActionTest.testGetReferrals(edu.ncsu.csc.itrust.action.EditReferralsActionTest) (404 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription3(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (454 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testCanRepresent(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (321 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testEditImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (383 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testDeleteImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (186 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testViewOfficeVisit(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (420 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest.testEditInstructions(edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest) (220 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_Interaction(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testDeletePrescription(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (406 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testOVID(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (200 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testGetPrescriptions(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (320 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testDeleteProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (422 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testGetHospitals(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (206 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testMakeEmailApp(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (205 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testAddPatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (321 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testValidate(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (421 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabTechName(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (452 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (374 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testDeleteLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_Allergy(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (447 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testFormToBean(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (408 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testAddDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (345 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationSemicolon(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (187 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabTechQueueSize(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (404 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testGetProcedureCodes(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (383 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testOfficeVisitSubActions(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (340 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest.testEditVisitID(edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest) (229 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationNewOfficeVisit(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (195 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationEmptyForm(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (194 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testGetImmunizations(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testGetProcedures(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (421 ms)</li><li>edu.ncsu.csc.itrust.action.EditReferralsActionTest.testGetPatientName(edu.ncsu.csc.itrust.action.EditReferralsActionTest) (352 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription4(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (452 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testGetDiagnoses(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (386 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testEditProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (416 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testDeleteDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (383 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testEditLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (297 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testDeletePatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (403 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testAddLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (351 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformationOctothorpe(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (115 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_AllergyFuture(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (282 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testOVDoesntExist(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (197 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabTechQueueSizeByPriority(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_AllergyOverride(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (432 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription1(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (261 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription2(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (394 ms)</li><li>edu.ncsu.csc.itrust.action.EditReferralsActionTest.testGetReceivingHCPName(edu.ncsu.csc.itrust.action.EditReferralsActionTest) (375 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest.testEditDosage(edu.ncsu.csc.itrust.dao.officevisit.EditPrescriptionsTest) (185 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testEditDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testUpdateInformation(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (199 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testEditPrescription(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (411 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testCannotRepresent(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (403 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabProcedureCodes(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (396 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testAddProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (368 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription5(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (458 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabProcedures(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (338 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testAddImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (318 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testGetOfficeVisit(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (196 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

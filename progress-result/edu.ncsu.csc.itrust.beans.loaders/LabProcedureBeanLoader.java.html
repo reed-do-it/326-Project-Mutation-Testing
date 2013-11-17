@@ -1,0 +1,1080 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>LabProcedureBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.LabProcedureBean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for LabProcedureBeans.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class LabProcedureBeanLoader implements BeanLoader&#60;LabProcedureBean&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;LabProcedureBean&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ArrayList&#60;LabProcedureBean&#62; list = new ArrayList&#60;LabProcedureBean&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_20'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_23'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/LabProcedureBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public LabProcedureBean loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;LabProcedureBean LabProcedure = new LabProcedureBean();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_28'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setProcedureID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setProcedureID(rs.getLong(&#34;LaboratoryProcedureID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_29'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setPid &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setPid(rs.getLong(&#34;PatientMID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_30'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLoinc &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setLoinc(rs.getString(&#34;LaboratoryProcedureCode&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_31'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setStatus &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setStatus(rs.getString(&#34;Status&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_32'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setCommentary &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setCommentary(rs.getString(&#34;Commentary&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_33'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setResults &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setResults(rs.getString(&#34;Results&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_34'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setOvID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setOvID(rs.getLong(&#34;OfficeVisitID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_35'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setTimestamp &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setTimestamp(rs.getTimestamp(&#34;UpdatedDate&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_36'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setRights &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setRights(rs.getString(&#34;Rights&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_37'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLTID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setLTID(rs.getLong(&#34;LabTechID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_38'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setPriorityCode &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setPriorityCode(rs.getInt(&#34;PriorityCode&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_39'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setViewedByPatient &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setViewedByPatient(rs.getBoolean(&#34;ViewedByPatient&#34;)); //must be set after status</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_40'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setNumericalResult &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setNumericalResult(rs.getString(&#34;NumericalResults&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_41'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setNumericalResultUnit &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setNumericalResultUnit(rs.getString(&#34;NumericalResultsUnit&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_42'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setUpperBound &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setUpperBound(rs.getString(&#34;UpperBound&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_43'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLowerBound &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;LabProcedure.setLowerBound(rs.getString(&#34;LowerBound&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_44'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/LabProcedureBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return LabProcedure;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, LabProcedureBean bean) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_48'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;throw new IllegalStateException(&#34;unimplemented!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/LabProcedureBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setProcedureID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setPid &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLoinc &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setStatus &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest.testAddLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setCommentary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setResults &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setOvID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setTimestamp &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setRights &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLTID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setPriorityCode &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setViewedByPatient &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setNumericalResult &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setNumericalResultUnit &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setUpperBound &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/LabProcedureBean::setLowerBound &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7fd0d6f9_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/LabProcedureBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.ViewMyLabProceduresTest.testGetLabProcedures(edu.ncsu.csc.itrust.action.ViewMyLabProceduresTest) (151 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientForNextMonthTest.testGetLabProceduresForPatientForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientForNextMonthTest) (46 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testViewReceivedProcedures(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (47 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest.testGetAllLabProceduresLOINC(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest) (49 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testEditLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (184 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest.testGetAllLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest) (73 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testViewTestingProcedures(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (67 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testAddLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (179 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testSubmitResults(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (46 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcUAPActionTest.testViewProcedure(edu.ncsu.csc.itrust.action.LabProcUAPActionTest) (67 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest) (4 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testGetSpecificLabs(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testGetLabProcedureForLHCPForNextMonth(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (86 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.UpdateLabProcedureTest.testUpdateLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.UpdateLabProcedureTest) (4 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testUpdateRights(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (62 ms)</li><li>edu.ncsu.csc.itrust.action.MyDiagnosisActionTest.testGetHCPByDiagnosis(edu.ncsu.csc.itrust.action.MyDiagnosisActionTest) (153 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testSubmitReceived(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (43 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testViewMyRecords(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (148 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testGetHCPName(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (49 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testSortByLOINC(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (76 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresDateTest.testGetAllLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresDateTest) (40 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcUAPActionTest.testUpdateProcedure(edu.ncsu.csc.itrust.action.LabProcUAPActionTest) (69 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.UpdateRightsTest.testUpdateRights(edu.ncsu.csc.itrust.dao.labprocedure.UpdateRightsTest) (4 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest.testAddLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest) (5 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testDeleteLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (274 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabProcedure(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (137 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresForDocOVTest.testGetAllLabProceduresForDocOV(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresForDocOVTest) (43 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabProcedureDAOTest.testMarkViewed(edu.ncsu.csc.itrust.dao.labprocedure.LabProcedureDAOTest) (127 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testViewProcedure(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (60 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testUpdateProcedure(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (45 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientTest.testGetAllLabProceduresForDocOV(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientTest) (40 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcLTActionTest.testSetToTesting(edu.ncsu.csc.itrust.action.LabProcLTActionTest) (47 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testUpdateProcedure(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (72 ms)</li><li>edu.ncsu.csc.itrust.action.EditLabProceduresActionTest.testGetLabProcedures(edu.ncsu.csc.itrust.action.EditLabProceduresActionTest) (131 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testGetLabs(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (129 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testOfficeVisitSubActions(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (137 ms)</li><li>edu.ncsu.csc.itrust.action.GenerateCalendarActionTest.testGetLabProceduresTable(edu.ncsu.csc.itrust.action.GenerateCalendarActionTest) (126 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

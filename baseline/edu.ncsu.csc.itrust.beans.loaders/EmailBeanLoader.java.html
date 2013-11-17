@@ -1,0 +1,898 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>EmailBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.Email;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for Fake Emails.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class EmailBeanLoader implements BeanLoader&#60;Email&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;Email&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;Email&#62; list = new ArrayList&#60;Email&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_21'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_23'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, Email email) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_27'>1</a>
+<span>
+
+1. loadParameters : removed call to java/sql/PreparedStatement::setString &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;ps.setString(1, email.getToListStr());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_28'>1</a>
+<span>
+
+1. loadParameters : removed call to java/sql/PreparedStatement::setString &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;ps.setString(2, email.getFrom());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_29'>1</a>
+<span>
+
+1. loadParameters : removed call to java/sql/PreparedStatement::setString &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;ps.setString(3, email.getSubject());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_30'>1</a>
+<span>
+
+1. loadParameters : removed call to java/sql/PreparedStatement::setString &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;ps.setString(4, email.getBody());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_31'>1</a>
+<span>
+
+1. loadParameters : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadParameters to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return ps;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public Email loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;Email email = new Email();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_36'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/Email::setFrom &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;email.setFrom(rs.getString(&#34;FromAddr&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_37'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/Email::setToList &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;email.setToList(Arrays.asList(rs.getString(&#34;ToAddr&#34;).split(&#34;,&#34;)));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_38'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/Email::setBody &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;email.setBody(rs.getString(&#34;Body&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_39'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/Email::setSubject &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;email.setSubject(rs.getString(&#34;Subject&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_40'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/Email::setTimeAdded &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;email.setTimeAdded(rs.getTimestamp(&#34;AddedDate&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_41'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return email;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@786de56e_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to java/sql/PreparedStatement::setString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to java/sql/PreparedStatement::setString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to java/sql/PreparedStatement::setString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to java/sql/PreparedStatement::setString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadParameters to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/Email::setFrom &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/Email::setToList &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/Email::setBody &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/Email::setSubject &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/Email::setTimeAdded &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@786de56e_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@786de56e_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/EmailBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.ViewApptRequestsActionTest.testRejectApptRequest(edu.ncsu.csc.itrust.action.ViewApptRequestsActionTest) (424 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientActionTest.testEditRepresentatives(edu.ncsu.csc.itrust.action.EditPatientActionTest) (218 ms)</li><li>edu.ncsu.csc.itrust.action.EditSingleReferralActionTest.testDeleteReferral(edu.ncsu.csc.itrust.action.EditSingleReferralActionTest) (318 ms)</li><li>edu.ncsu.csc.itrust.action.EmergencyReportActionTest.testBaseCase(edu.ncsu.csc.itrust.action.EmergencyReportActionTest) (129 ms)</li><li>edu.ncsu.csc.itrust.action.MonitorAdverseEventActionTest.testSendMessage(edu.ncsu.csc.itrust.action.MonitorAdverseEventActionTest) (316 ms)</li><li>edu.ncsu.csc.itrust.action.ViewPrescriptionRecordsActionTest.testGetPrescriptionsForPatient(edu.ncsu.csc.itrust.action.ViewPrescriptionRecordsActionTest) (410 ms)</li><li>edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest.testEmailAvalanche(edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest) (407 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTestTwo.testUpdateAllergiesDuplicateAllergy(edu.ncsu.csc.itrust.action.EditPHRActionTestTwo) (354 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription3(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (454 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientActionTest.testEditCOD(edu.ncsu.csc.itrust.action.EditPatientActionTest) (206 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTest.testAllergyExistingPrescription(edu.ncsu.csc.itrust.action.EditPHRActionTest) (285 ms)</li><li>edu.ncsu.csc.itrust.action.EditSingleReferralActionTest.testAddReferral(edu.ncsu.csc.itrust.action.EditSingleReferralActionTest) (350 ms)</li><li>edu.ncsu.csc.itrust.action.ViewApptRequestsActionTest.testAcceptApptRequest(edu.ncsu.csc.itrust.action.ViewApptRequestsActionTest) (384 ms)</li><li>edu.ncsu.csc.itrust.action.ViewExpiredPrescriptionRecordsActionTest.testGetPrescriptionsForPatient(edu.ncsu.csc.itrust.action.ViewExpiredPrescriptionRecordsActionTest) (427 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTestTwo.testUpdateAllergiesFutRX(edu.ncsu.csc.itrust.action.EditPHRActionTestTwo) (423 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_AllergyOverride(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (432 ms)</li><li>edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest.testSendTwoMail(edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest) (326 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTest.testUpdateAllergies(edu.ncsu.csc.itrust.action.EditPHRActionTest) (413 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListAllEmails(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest) (11 ms)</li><li>edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest.testSendOneMail(edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest) (414 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcUAPActionTest.testUpdateProcedure(edu.ncsu.csc.itrust.action.LabProcUAPActionTest) (152 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTestTwo.testUpdateAllergiesNoRX(edu.ncsu.csc.itrust.action.EditPHRActionTestTwo) (340 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testListEmailsByPerson(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest) (6 ms)</li><li>edu.ncsu.csc.itrust.action.ResetPasswordActionTest.testResetPassword(edu.ncsu.csc.itrust.action.ResetPasswordActionTest) (165 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailTest.testFindWithString(edu.ncsu.csc.itrust.dao.fakeemail.EmailTest) (5 ms)</li><li>edu.ncsu.csc.itrust.action.MonitorAdverseEventActionTest.testRemove(edu.ncsu.csc.itrust.action.MonitorAdverseEventActionTest) (317 ms)</li><li>edu.ncsu.csc.itrust.action.LabProcHCPActionTest.testUpdateProcedure(edu.ncsu.csc.itrust.action.LabProcHCPActionTest) (234 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testGetEmailHistory(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (356 ms)</li><li>edu.ncsu.csc.itrust.action.ResetPasswordActionTest.testResetForHCP(edu.ncsu.csc.itrust.action.ResetPasswordActionTest) (131 ms)</li><li>edu.ncsu.csc.itrust.action.SendMessageActionTest.testSendMessage(edu.ncsu.csc.itrust.action.SendMessageActionTest) (417 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

@@ -1,0 +1,674 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>DBException.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.exception;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The reasoning behind this wrapper exception is security. When an SQL Exception gets thrown all the way back</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * to the JSP, we begin to reveal details about our database (even knowing that it&#39;s MySQL is bad!) So, we</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * make a wrapper exception with a vague description, but we also keep track of the SQL Exception for</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * debugging and testing purposes.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *  </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class DBException extends iTrustException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private static final long serialVersionUID = -6554118510590118376L;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private SQLException sqlException = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public DBException(SQLException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;super(&#34;A database exception has occurred. Please see the log in the console for stacktrace&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.sqlException = e;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return The SQL Exception that was responsible for this error.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public SQLException getSQLException() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_27'>1</a>
+<span>
+
+1. getSQLException : mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getSQLException to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return sqlException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;@Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String getExtendedMessage() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_32'>1</a>
+<span>
+
+1. getExtendedMessage : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (sqlException != null)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_33'>1</a>
+<span>
+
+1. getExtendedMessage : mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;return sqlException.getMessage();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;else</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_35'>1</a>
+<span>
+
+1. getExtendedMessage : mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;return super.getExtendedMessage();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@393ddcaf_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393ddcaf_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSQLException<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest.testAddLOINC(edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getSQLException to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393ddcaf_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExtendedMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393ddcaf_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExtendedMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@393ddcaf_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@393ddcaf_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExtendedMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/DBException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.EmailUtilTest.testSendEmail(edu.ncsu.csc.itrust.EmailUtilTest) (5 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testEvilDatabase(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (187 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testGetSecurityQuestion(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProceduresDate(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest.testGetException(edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetAllPersonnel(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest.testSendException(edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest.testAddSurveyDataException(edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testSubmitReceivedLP(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest.testGetAllAccessException(edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testEditPatientException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testUpdateRights(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetCurrentPrescriptions(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest.testIsCompleted(edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresInTransitForLabTech(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testRemoveAllHospitalAssignmentsException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsSentFrom(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest.testAddLOINC(edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testSetSecurityQuestionAnswer(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testAddEmptyPatientException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testDeclareHCPException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testSetSessionTimeoutException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testLoginFailuresException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testSubmitTestResults(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetPatientQuery(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest.testGetOfficeVisitsWithInstructions(edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest.testRemoveException(edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testAddHospitalException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testGetSecurityAnswer(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testRemovePatientFromListBad(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (170 ms)</li><li>edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest.testGetReportsNullReportID(edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest) (129 ms)</li><li>edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest.testGetAllLOINC(edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresTestingForLabTech(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testRepresentsException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testUndeclareHCPException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest.testGetReportsUnknownRequeter(edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest) (113 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest.testUpdateCodeException(edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProceduresForDocOVLong(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest.testGetOVException(edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testRemoveRepresentativeException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest.testRecordAccessesException(edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testGetSessionTimeoutException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testAddEmptyPersonnel(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferral(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.visitreminders.VisitRemindersDAOExceptionTest.testGetDiagnosedVisitNeedersException(edu.ncsu.csc.itrust.dao.visitreminders.VisitRemindersDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProceduresForDocOVLongLong(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testUpdateLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest.testUpdateCodeException(edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsSentTo(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest.testAddICDCodeException(edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testRecordLoginFailureException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest.testGetReportsFor(edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetNameException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest.testGetAllICDCodesException(edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest.testRemove(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest.testGetList(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testAssignHospitalException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testBadStoreRetrievePatientBPOnlyDataBad(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (184 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testRemoveLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest.testGetListException(edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest.testAddCodeException(edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testExpiredPrescriptionException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testRecordResetPasswordFailure(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTDAOExceptionTest.testUpdateCodeException(edu.ncsu.csc.itrust.dao.standards.CPTDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest.testUpdate(edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest.testPriorDiagnosesException(edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.action.ManageHospitalAssignmentsActionTest.testAssignHCPToHospitalEvil(edu.ncsu.csc.itrust.action.ManageHospitalAssignmentsActionTest) (158 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest.testGetEvilReportRequest(edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest) (173 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest.testGetAllOVsException(edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresForPatientForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.phr.PHRDAOExceptionTest.testGetException(edu.ncsu.csc.itrust.dao.phr.PHRDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testRemoveHospitalAssignmentException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest.testOperationProfileException(edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest) (135 ms)</li><li>edu.ncsu.csc.itrust.dao.allergies.AllergyDAOExceptionTest.testGetAllergyException(edu.ncsu.csc.itrust.dao.allergies.AllergyDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetPatientException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest.testAddException(edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientForNextMonthTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientForNextMonthTest) (144 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresDateTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresDateTest) (152 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testGetUserRoleException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForPatientTest) (140 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest.testAdd(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.UpdateLabProcedureTest.testFailLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.UpdateLabProcedureTest) (3 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetHospitalsException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest.testInsertReportFailureNullMIDs(edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest) (127 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest.testFailLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.AddLabProcedureTest) (4 ms)</li><li>edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest.testGetHCPMID(edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest.testCreateException(edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest.testInsertReport1(edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest) (132 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetPrescribingDoctor(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest.testEdit(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testCheckUserExistsException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testAddEmptyPersonnelException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateLabProcListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateLabProcListActionTest) (142 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testAddLabProcedure(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.family.FamilyDAOExceptionTest.testFamilyMemberException(edu.ncsu.csc.itrust.dao.family.FamilyDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetLabTechs(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProceduresLOINC(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsForPatient(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testMarkViewed(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest.testGetProcedures(edu.ncsu.csc.itrust.dao.LOINC.LOINCDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest.testSetViewedFailure(edu.ncsu.csc.itrust.dao.reportrequest.ReportRequestDAOTest) (129 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest.testGetList(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresReceivedForLabTech(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetNameException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest.testChildhoodInfectionException(edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest.testAllTransactionsException(edu.ncsu.csc.itrust.dao.transaction.TransactionDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest.testGetICDException(edu.ncsu.csc.itrust.dao.standards.ICDDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetPersonnelFromHospital(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testUpdateHospitalException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsForReceivingHCPUnread(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testBadStoreRetrievePatientGlucoseOnlyDataBad(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (149 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testRemoveReferral(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest.testGetReport(edu.ncsu.csc.itrust.dao.adverseevent.AdverseEventDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetLabProceduresForLHCPForNextMonthTest) (2 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetSenderQuery(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetDiagnosesException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresForPatient(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testCheckPatientExistsException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetRepresentedException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testCheckDeclaredHCPException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetUAPsForHCP(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testBadStoreRetrievePatientNormalDataBad(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (196 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetAllLabProceduresLOINC2(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest.testCheckOVExistsException(edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTDAOExceptionTest.testAddCodeException(edu.ncsu.csc.itrust.dao.standards.CPTDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testPersonnelException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testSetLPToTesting(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsFromOV(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsForReceivingHCP(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest.testHasSmokedException(edu.ncsu.csc.itrust.dao.risk.RiskDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testGetDeclaredHCPsException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.action.SetSecurityQuestionTest.testBadConnection(edu.ncsu.csc.itrust.action.SetSecurityQuestionTest) (323 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testGetHospitalException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testAddReferral(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest.testGetPersonException(edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testAddUserException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testGetUserNameException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testCheckPersonnelExistsException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest.testRemove(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.visitreminders.VisitRemindersDAOExceptionTest.testGetFluShotDelinquentsException(edu.ncsu.csc.itrust.dao.visitreminders.VisitRemindersDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest.testUpdateOVException(edu.ncsu.csc.itrust.dao.officevisit.OfficeVisitDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testEditReferral(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testGetPersonnelFromHospitalNoSpeciality(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest.testAdd(edu.ncsu.csc.itrust.dao.officevisit.PrescriptionOverrideDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest.testGetSurveyDataException(edu.ncsu.csc.itrust.dao.survey.SurveyExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest.testGetAllException(edu.ncsu.csc.itrust.dao.fakeemail.EmailExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testAddRepException(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresLOINCTest) (141 ms)</li><li>edu.ncsu.csc.itrust.dao.phr.PHRDAOExceptionTest.testAddException(edu.ncsu.csc.itrust.dao.phr.PHRDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest.testGetAllHospitalsException(edu.ncsu.csc.itrust.dao.hospital.HospitalDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest.testExpiredPrescriptionException2(edu.ncsu.csc.itrust.dao.patient.PatientDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest.testGetReferralsForPatientUnread(edu.ncsu.csc.itrust.dao.referral.ReferralDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest.testEditException(edu.ncsu.csc.itrust.dao.patientinstructions.PatientInstructionsDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresForDocOVTest.testFailGetLabProcedures(edu.ncsu.csc.itrust.dao.labprocedure.GetAllLabProceduresForDocOVTest) (120 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest.testResetPasswordException(edu.ncsu.csc.itrust.dao.auth.AuthDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest.testGetAllCodesException(edu.ncsu.csc.itrust.dao.standards.NDDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.allergies.AllergyDAOExceptionTest.testAddAllergyException(edu.ncsu.csc.itrust.dao.allergies.AllergyDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest.testEditPersonnelException(edu.ncsu.csc.itrust.dao.personnel.PersonnelDAOExceptionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest.testGetLabProceduresForLHCPForNextMonth(edu.ncsu.csc.itrust.dao.labprocedure.LabPocedureDAOExceptionTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

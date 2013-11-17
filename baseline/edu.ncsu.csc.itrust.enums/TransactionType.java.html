@@ -1,0 +1,3800 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>TransactionType.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_1'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>package edu.ncsu.csc.itrust.enums;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * All of the possible transaction types, in no particular order, used in producing the operational profile.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * TransactionCode -- identification code</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Description -- basic description of the event</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * ActionPhrase -- a patient-centered English sentence describing the action (used in activity feeds)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * PatientViewable -- boolean for if the action will be displayed in the patient activity feed</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public enum TransactionType {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_12'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;LOGIN_FAILURE(1, &#34;Failed login&#34;, &#34;tried to authenticate unsuccessfully&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_13'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;HOME_VIEW(10, &#34;User views homepage&#34;, &#34;has viewed the iTrust user homepage&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_14'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;UNCAUGHT_EXCEPTION(20, &#34;Exception occured and was not caught&#34;, &#34;caused an unhandled exception&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_15'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;GLOBAL_PREFERENCES_VIEW(30,&#34;View global preferences&#34;,&#34;viewed global preferences for iTrust&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;GLOBAL_PREFERENCES_EDIT(31,&#34;Edit global preferences&#34;, &#34;edited global preferences for iTrust&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;USER_PREFERENCES_VIEW(32, &#34;View preferences&#34;, &#34;viewed user preferences&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;USER_PREFERENCES_EDIT(33, &#34;Edit peferences&#34;, &#34;edited user preferences&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_CREATE(100, &#34;Create a patient&#34;, &#34;created your account&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_DISABLE(101, &#34;Disable a patient&#34;, &#34;disabled your account&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_DEACTIVATE(102, &#34;Deactivate a patient&#34;, &#34;deactivated your account&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_ACTIVATE(103, &#34;Activate a patient&#34;, &#34;activated your account&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_23'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_CREATE(200, &#34;Create a LHCP&#34;, &#34;created an LHCP&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_EDIT(201, &#34;Edit LHCP information&#34;, &#34;edited LHCP information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_DISABLE(202, &#34;Disable a LHCP&#34;, &#34;disbaled an LHCP&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_26'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ER_CREATE(210, &#34;Create an ER&#34;, &#34;created an ER&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ER_EDIT(211, &#34;Edit ER information&#34;, &#34;edited ER information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ER_DISABLE(212, &#34;Disable an ER&#34;, &#34;disabled an ER&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PHA_CREATE(220, &#34;Create a PHA&#34;, &#34;created a PHA&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PHA_EDIT(221, &#34;Edit PHA information&#34;, &#34;edited PHA information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PHA_DISABLE(222, &#34;Disable a PHA&#34;, &#34;disabled a PHA&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_ASSIGN_HOSPITAL(230, &#34;Assign LHCP to a hospital&#34;, &#34;assigned an LHCP to a hospital&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_33'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_REMOVE_HOSPITAL(231, &#34;Unassign LHCP from a hospital&#34;, &#34;unassigned an LHCP from a hospital&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_34'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LT_ASSIGN_HOSPITAL(232, &#34;Assign LT to a hospital&#34;, &#34;assigned an LT to a hospital&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LT_REMOVE_HOSPITAL(233, &#34;Unassign LT from a hospital&#34;, &#34;unassigned an LT from a hospital&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_36'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UAP_CREATE(240, &#34;Create a UAP&#34;, &#34;created a UAP&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UAP_EDIT(241, &#34;Edit a UAP&#34;, &#34;edited a UAP&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_38'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UAP_DISABLE(242, &#34;Disable a UAP&#34;, &#34;disabled a UAP&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_39'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PERSONNEL_VIEW(250, &#34;View a personnel&#39;s information&#34;, &#34;viewed a personnel member&#39;s information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_40'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LT_CREATE(260, &#34;Create a LT&#34;, &#34;created an LT&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_41'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LT_EDIT(261, &#34;Edit LT information&#34;, &#34;edited LT information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_42'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LT_DISABLE(262, &#34;Disable a LT&#34;, &#34;disabled an LT&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_43'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOGIN_SUCCESS(300, &#34;Login Succeded&#34;, &#34;successfully authenticated&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_44'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOGOUT(301, &#34;Logged out&#34;, &#34;logged out of iTrust&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_45'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOGOUT_INACTIVE(302, &#34;Logged out from inactivity&#34;, &#34;logged out due to inactivity&#34;,true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_46'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PASSWORD_RESET(310, &#34;Password changed&#34;, &#34;changed your iTrust password&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_47'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DEMOGRAPHICS_VIEW(400, &#34;View patient demographics&#34;, &#34;viewed your demographics&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_48'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DEMOGRAPHICS_EDIT(410, &#34;Edit patient demographics&#34;, &#34;edited your demographics&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_49'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_PHOTO_UPLOAD(411, &#34;Upload patient photo&#34;, &#34;uploaded a photo of you to your record&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_50'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_PHOTO_REMOVE(412, &#34;Remove patient photo&#34;, &#34;removed your photograph from your record&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_51'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_VIEW(600, &#34;View LHCP information&#34;, &#34;viewed LHCP information&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_52'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_DECLARE_DLHCP(601, &#34;Declare LHCP as DLHCP&#34;, &#34;declared a LHCP&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_53'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LHCP_UNDECLARE_DLHCP(602, &#34;Undeclare LHCP as DLHCP&#34;, &#34;undeclared an LHCP&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_54'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ACCESS_LOG_VIEW(800, &#34;View access log&#34;, &#34;viewed your access log&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_55'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MEDICAL_RECORD_VIEW(900, &#34;View medical records&#34;, &#34;viewed your medical records&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_56'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_HEALTH_INFORMATION_VIEW(1000, &#34;View personal health information&#34;, &#34;viewed your basic health information&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_57'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_HEALTH_INFORMATION_EDIT(1001, &#34;Enter/edit personal health information&#34;, &#34;edited your basic health information&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_58'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BASIC_HEALTH_CHARTS_VIEW(1002, &#34;View Basic Health Charts&#34;, &#34;viewed you basic health information charts&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_59'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OFFICE_VISIT_CREATE(1100, &#34;Create Office Visits&#34;, &#34;created an office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_60'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OFFICE_VISIT_VIEW(1101, &#34;View Office Visits&#34;, &#34;viewed your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_61'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OFFICE_VISIT_EDIT(1102, &#34;Edit Office Visits&#34;, &#34;edited your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_63'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRESCRIPTION_ADD(1110, &#34;Add Prescription&#34;, &#34;Added a prescription to your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_64'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRESCRIPTION_EDIT(1111, &#34;Edit Prescription&#34;, &#34;Edited a prescription in your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_65'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRESCRIPTION_REMOVE(1112, &#34;Remove Prescription&#34;, &#34;Removed a prescription from your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_66'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_PROCEDURE_ADD(1120, &#34;Add Lab Procedure&#34;, &#34;Added a lab procedure to your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_PROCEDURE_EDIT(1121, &#34;Edit Lab Procedure&#34;, &#34;Edited a lab procedure in your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_68'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_PROCEDURE_REMOVE(1122, &#34;Remove Lab Procedure&#34;, &#34;Removed a lab procedure from your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_69'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_ADD(1130, &#34;Add Diagnosis&#34;, &#34;Added a diagnosis to your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_70'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_REMOVE(1132, &#34;Remove Diagnosis&#34;, &#34;Removed a diagnosis from your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_71'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_URL_EDIT(1133, &#34;Edit Diagnosis URL&#34;, &#34;Diagnosis URL was edited&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PROCEDURE_ADD(1140, &#34;Add Procedure&#34;, &#34;Added a procedure to your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_73'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PROCEDURE_EDIT(1141, &#34;Edit Procedure&#34;, &#34;Edited a procedure in your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_74'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PROCEDURE_REMOVE(1142, &#34;Remove Procedure&#34;, &#34;Removed a procedure from your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_75'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IMMUNIZATION_ADD(1150, &#34;Add Immunization&#34;, &#34;Added an immunization to your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_76'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IMMUNIZATION_REMOVE(1152, &#34;Remove Immunization&#34;, &#34;Removed an immunization from your office visit&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_78'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OPERATIONAL_PROFILE_VIEW(1200, &#34;View Operational Profile&#34;, &#34;viewed the operational profile&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_79'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HEALTH_REPRESENTATIVE_DECLARE(1300, &#34;Declare personal health representative&#34;, &#34;declared a personal health representative&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_80'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HEALTH_REPRESENTATIVE_UNDECLARE(1301, &#34;Undeclare personal health representative&#34;, &#34;undeclared a personal health representative&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_81'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MEDICAL_PROCEDURE_CODE_ADD(1500, &#34;Add Medical procedure code&#34;, &#34;added a medical procedure code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_82'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MEDICAL_PROCEDURE_CODE_VIEW(1501, &#34;View Medical procedure code&#34;, &#34;viewed a medical procedure code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_83'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MEDICAL_PROCEDURE_CODE_EDIT(1502, &#34;Edit Medical procedure code&#34;, &#34;edited a medical procedure code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IMMUNIZATION_CODE_ADD(1510, &#34;Add Immunization code&#34;, &#34;added an immunization code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_85'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IMMUNIZATION_CODE_VIEW(1511, &#34;View Immunization code&#34;, &#34;viewed an immunization code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_86'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    IMMUNIZATION_CODE_EDIT(1512, &#34;Edit Immunization code&#34;, &#34;edited an immunization code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_87'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_CODE_ADD(1520, &#34;Add Diagnosis code&#34;, &#34;added a diagnosis code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_CODE_VIEW(1521, &#34;View Diagnosis code&#34;, &#34;viewed a diagnosis code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_89'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSIS_CODE_EDIT(1522, &#34;Edit Diagnosis code&#34;, &#34;edited a diagnosis code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_90'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_CODE_ADD(1530, &#34;Add Drug code&#34;, &#34;added a drug code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_91'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_CODE_VIEW(1531, &#34;View Drug code&#34;, &#34;viewed a drug code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_92'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_CODE_EDIT(1532, &#34;Edit Drug code&#34;, &#34;edited a drug code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_93'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_CODE_REMOVE(1533, &#34;Remove Drug code&#34;, &#34;removed a drug code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_94'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOINC_CODE_ADD(1540, &#34;Add Physical Services code&#34;, &#34;added a physical service code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_95'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOINC_CODE_VIEW(1541, &#34;View Physical Services code&#34;, &#34;viewed a physical service code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_96'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOINC_CODE_EDIT(1542, &#34;Edit Physical Services code&#34;, &#34;edited a physical service code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_97'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LOINC_CODE_FILE_ADD(1549, &#34;Upload Physical Services file&#34;, &#34;uploaded a LOINC file&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_98'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    RISK_FACTOR_VIEW(1600, &#34;View risk factors&#34;, &#34;viewed your risk factors&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_99'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_REMINDERS_VIEW(1700, &#34;Proactively determine necessary patient care&#34;, &#34;proactively determined your necessary patient care&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_100'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HOSPITAL_LISTING_ADD(1800, &#34;Add a hospital listing&#34;, &#34;added a hospital listing&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_101'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HOSPITAL_LISTING_VIEW(1801, &#34;View a hospital listing&#34;, &#34;viewed a hospital listing&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_102'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    HOSPITAL_LISTING_EDIT(1802, &#34;Edit a hospital listing&#34;, &#34;edited a hospital listing&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_103'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRESCRIPTION_REPORT_VIEW(1900, &#34;View prescription report&#34;, &#34;viewed your prescription report&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_104'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DEATH_TRENDS_VIEW(2000, &#34;View Cause of Death Trends&#34;, &#34;viewed cause of death trends&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_105'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EMERGENCY_REPORT_CREATE(2100, &#34;Create emergency report&#34;, &#34;created an emergency report for you&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_106'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EMERGENCY_REPORT_VIEW(2101, &#34;View emergency report&#34;, &#34;viewed your emergency report&#34;,true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_107'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_TYPE_ADD(2200, &#34;Add appointment type listing&#34;, &#34;added an appointment type&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_108'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_TYPE_VIEW(2201, &#34;View appointment type listing&#34;, &#34;viewed an appointment type&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_109'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_TYPE_EDIT(2202, &#34;Edit appointment type listing&#34;, &#34;edited an appointment type&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_110'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_ADD(2210, &#34;Schedule Appointments&#34;, &#34;scheduled an appointment with you&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_111'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_VIEW(2211, &#34;View Scheduled Appointment&#34;, &#34;viewed your scheduled appointment&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_EDIT(2212, &#34;Edit Scheduled Appointment&#34;, &#34;edited your scheduled appointment&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_113'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_REMOVE(2213, &#34;Delete Scheduled Appointment&#34;, &#34;canceled your scheduled appointment&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_114'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_ALL_VIEW(2220, &#34;View All Scheduled Appointments&#34;, &#34;viewed all scheduled appointments&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_115'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_CONFLICT_OVERRIDE(2230, &#34;Schedule conflict override&#34;,&#34;overrided a schedule conflict&#34;,true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_116'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_REQUEST_SUBMITTED(2240, &#34;Appointment request submitted&#34;, &#34;requested an appointment&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_117'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_REQUEST_APPROVED(2250, &#34;Appointment request approved&#34;, &#34;approved an appointment request&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_118'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_REQUEST_REJECTED(2251, &#34;Appointment request rejected&#34;, &#34;rejected an appointment request&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_119'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    APPOINTMENT_REQUEST_VIEW(2260, &#34;View All Appointment Requests&#34;, &#34;viewed all appointment requests&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_120'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    COMPREHENSIVE_REPORT_VIEW(2300, &#34;Comprehensive Report&#34;, &#34;viewed your comprehensive report&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_121'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    COMPREHENSIVE_REPORT_ADD(2301, &#34;Request Comprehensive Report&#34;, &#34;requested a comprehensive report for you&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_122'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SATISFACTION_SURVEY_TAKE(2400, &#34;Take Satisfaction Survey&#34;, &#34;completed a satisfaction survey&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_123'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SATISFACTION_SURVEY_VIEW(2500, &#34;View physician satisfaction results&#34;, &#34;viewed physician satisfaction survey results&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_125'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_UNASSIGNED(2600, &#34;Unassigned lab results log value&#34;, &#34;&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_126'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_CREATE(2601, &#34;Create laboratory procedure&#34;, &#34;created your lab procedure&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_127'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_VIEW(2602, &#34;View laboratory procedure results&#34;, &#34;viewed your lab procedure results&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_128'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_REASSIGN(2603, &#34;Reassign laboratory test to a new lab technician&#34;, &#34;assigned your laboratory test to a new lab tech&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_129'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_REMOVE(2604, &#34;Remove a laboratory procedure&#34;, &#34;removed your lab procedure&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_130'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_ADD_COMMENTARY(2605, &#34;Add commentary to a laboratory procedure&#34;, &#34;marked a lab procedure as completed&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_131'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_VIEW_QUEUE(2606, &#34;View laboratory procedure queue&#34;, &#34;viewed your lab procedure queue&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_132'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_RECORD(2607, &#34;Record laboratory test results&#34;, &#34;recorded your lab procedure results&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_133'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LAB_RESULTS_RECEIVED(2608, &#34;Laboratory procedure received by lab technician&#34;, &#34;the lab tech received your lab procedure&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_134'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_135'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EMAIL_SEND(2700, &#34;Send an email&#34;, &#34;sent an email&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_136'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EMAIL_HISTORY_VIEW(2710, &#34;View email history&#34;, &#34;viewed email history&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_137'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_LIST_VIEW(2800, &#34;View patient list&#34;, &#34;viewed his/her patient list&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_138'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXPERIENCED_LHCP_FIND(2900, &#34;Find LHCPs with experience with a diagnosis&#34;, &#34;found LHCPs with experience with a diagnosis&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_139'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MESSAGE_SEND(3000, &#34;Send messages&#34;, &#34;sent a message&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_140'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MESSAGE_VIEW(3001, &#34;View messages&#34;, &#34;viewed a message&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_141'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    INBOX_VIEW(3010, &#34;View inbox&#34;, &#34;viewed message inbox&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_142'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OUTBOX_VIEW(3011, &#34;View outbox&#34;, &#34;viewed message outbox&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_143'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_FIND_LHCP_FOR_RENEWAL(3100, &#34;Find LHCPs for prescription renewal&#34;, &#34;found LHCPs for prescription renewal&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_144'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXPIRED_PRESCRIPTION_VIEW(3110, &#34;View expired prescriptions&#34;, &#34;viewed your expired prescriptions&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_145'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PRECONFIRM_PRESCRIPTION_RENEWAL(3200, &#34;Proactively confirm prescription-renewal needs&#34;, &#34;proactively confirmed your prescription renewal needs&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_146'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DIAGNOSES_LIST_VIEW(3210, &#34;View list of diagnoses&#34;, &#34;viewed a list of diagnosis&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_147'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONSULTATION_REFERRAL_CREATE(3300, &#34;Refer a patient for consultations&#34;, &#34;referred you to another HCP&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_148'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONSULTATION_REFERRAL_VIEW(3310, &#34;View referral for consultation&#34;, &#34;viewed your consultation referral&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_149'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONSULTATION_REFERRAL_EDIT(3311, &#34;Modify referral for consultation&#34;, &#34;modified your consultation referral&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_150'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CONSULTATION_REFERRAL_CANCEL(3312, &#34;Cancel referral for consultation&#34;, &#34;canceled your consultation referral&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_151'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_LIST_ADD(3400, &#34;Patient added to monitoring list&#34;, &#34;added you to the telemedicine monitoring list&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_152'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_LIST_EDIT(3401, &#34;Patient telemedicine permissions changed&#34;, &#34;changed the data you report for telemedicine monitoring&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_153'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_LIST_REMOVE(3402, &#34;Patient removed from monitoring list&#34;, &#34;removed you from the telemedicine monitoring list&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_154'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TELEMEDICINE_DATA_REPORT(3410, &#34;Remote monitoring levels are reported&#34;, &#34;reported your telemedicine data&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_155'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    TELEMEDICINE_DATA_VIEW(3420, &#34;Remote monitoring levels are viewed&#34;, &#34;viewed your telemedicine data reports&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_156'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ADVERSE_EVENT_REPORT(3500, &#34;Adverse event reporting&#34;, &#34;reported an adverse event&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_157'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ADVERSE_EVENT_VIEW(3600, &#34;Adverse event monitoring&#34;, &#34;reviewed an adverse event report&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_158'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ADVERSE_EVENT_REMOVE(3601, &#34;Remove adverse event&#34;, &#34;removed an adverse event report&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_159'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ADVERSE_EVENT_REQUEST_MORE(3602, &#34;Request More Adverse Event Details&#34;, &#34;requested more adverse event details&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_160'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ADVERSE_EVENT_CHART_VIEW(3603, &#34;View Adverse Event Chart&#34;, &#34;viewed adverse event chart&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_161'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OVERRIDE_INTERACTION_WARNING(3700, &#34;Override interaction warning&#34;, &#34;Overrode an interaction warning&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_162'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OVERRIDE_CODE_ADD(3710, &#34;Add overriding reason listing&#34;, &#34;added a medication override reason&#34;,false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_163'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OVERRIDE_CODE_EDIT(3711, &#34;Edit overriding reason listing&#34;, &#34;edited a medication override reason&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_164'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_INTERACTION_ADD(3800, &#34;Add Drug Interactions Code&#34;, &#34;added a drug interaction code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_165'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_INTERACTION_EDIT(3801, &#34;Edit Drug Interactions Code&#34;, &#34;edited a drug interaction code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_166'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    DRUG_INTERACTION_DELETE(3802, &#34;Delete Drug Interactions Code&#34;, &#34;deleted a drug interaction code&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_167'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    CALENDAR_VIEW(4000, &#34;View calendar&#34;, &#34;viewed your calendar&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_168'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    UPCOMING_APPOINTMENTS_VIEW(4010, &#34;View Upcoming Appointments&#34;, &#34;viewed upcoming appointments&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_169'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NOTIFICATIONS_VIEW(4200, &#34;View Notifications&#34;, &#34;viewed your notification center&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_170'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ACTIVITY_FEED_VIEW(4300, &#34;View activity feed&#34;, &#34;viewed your activity feed&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_171'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;PATIENT_INSTRUCTIONS_ADD(4400, &#34;Add Patient Specific Instructions for Office Visit&#34;, &#34;added a patient-specific instruction&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_172'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;PATIENT_INSTRUCTIONS_EDIT(4401, &#34;Edit Patient Specific Instructions for Office Visit&#34;, &#34;edited a patient-specific instruction&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_173'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;PATIENT_INSTRUCTIONS_DELETE(4402, &#34;&#9;Delete Patient Specific Instructions for Office Visit&#34;, &#34;deleted a patient-specific instruction&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_174'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;PATIENT_INSTRUCTIONS_VIEW(4403, &#34;&#9;View Patient Specific Instructions&#34;, &#34;viewed your patient-specific instructions&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_175'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_176'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;DIAGNOSIS_TRENDS_VIEW(4500, &#34;View diagnosis statistics&#34;, &#34;viewed your diagnosis count&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_177'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;DIAGNOSIS_EPIDEMICS_VIEW(4600, &#34;View Epidemic Detection&#34;, &#34;viewed epidemic detection&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_179'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;GROUP_REPORT_VIEW(4601, &#34;View Group Report&#34;, &#34;viewed group report&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_180'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    FIND_EXPERT(4700, &#34;Find Expert Search&#34;, &#34;Searched for experts&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_181'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_182'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_ASSIGNED_TO_ROOM(4800, &#34;Patient Assigned&#34;, &#34;Patient assigned to room&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_183'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    PATIENT_REMOVED_FROM_ROOM(4801, &#34;Patient Removed&#34;, &#34;Patient removed from room&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_184'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ROOMS_FULL(4802, &#34;Rooms Full&#34;, &#34;Patients cannot be assigned to any room meeting that criteria&#34;, false),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_186'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;CREATE_HEALTH_METRIC(5100, &#34;Health Metrics Created&#34;, &#34;Create Basic Health Metrics&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_187'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;VIEW_HEALTH_METRIC_IN_OV(5101, &#34;Health Metrics Viewed In Office Visit&#34;, &#34;View Basic Health Metrics as part of Office Visit View&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_188'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;EDIT_HEALTH_METRIC(5102, &#34;Health Metrics Edited&#34;, &#34;Edit Basic Health Metrics&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_190'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;PATIENT_VIEW_HEALTH_METRICS(5200, &#34;Patient viewed health metrics&#34;, &#34;Patient View of Basic Health Metrics&#34;, true),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_191'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;HCP_VIEW_HEALTH_METRICS(5201, &#34;HCP viewed health metrics&#34;, &#34;HCP View of Basic Health Metrics&#34;, true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_194'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_195'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_196'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_197'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_198'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * This string is used in the SQL statement associated with pulling events for</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_199'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * display in a patient&#39;s Access Log</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_200'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_201'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static String patientViewableStr;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_202'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_203'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;static {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_204'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;for(TransactionType t : TransactionType.values())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_205'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_206'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;if(t.isPatientViewable())</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_207'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_208'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;patientViewableStr += &#34;,&#34; + t.code;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_209'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_210'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_211'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_212'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_213'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * This string is used in the SQL statement associated with excluding events as specified in UC43</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_214'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_215'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static String dlhcpHiddenStr;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_216'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_217'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;static {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_218'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;dlhcpHiddenStr = &#34;400, 900, 1000, 1001, 1100, 1101, 1102, 1110, 1111, 1112, 1120, 1121, 1122, 1130, 1131, 1132, 1140, 1141, 1142, 1150, 1152, 1600, 1700, 1900, 2101, 2300, 2601, 2602, 3200&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_219'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_220'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_221'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private TransactionType(int code, String description, String actionPhrase, boolean patientViewable) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_222'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.code = code;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_223'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.description = description;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_224'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.actionPhrase = actionPhrase;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_225'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.patientView = patientViewable;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_226'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_227'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_228'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private int code;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_229'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private String description;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_230'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private String actionPhrase;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_231'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private boolean patientView;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_232'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_233'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public int getCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_234'/>
+234
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_234'>1</a>
+<span>
+
+1. getCode : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return code;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_235'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_236'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_237'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String getDescription() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_238'/>
+238
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_238'>1</a>
+<span>
+
+1. getDescription : mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::getDescription to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return description;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_239'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_240'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_241'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String getActionPhrase() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_242'/>
+242
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_242'>1</a>
+<span>
+
+1. getActionPhrase : mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::getActionPhrase to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return actionPhrase;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_243'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_244'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_245'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean isPatientViewable(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_246'/>
+246
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_246'>1</a>
+<span>
+
+1. isPatientViewable : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return patientView;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_247'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_248'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_249'/>
+249
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_249'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static TransactionType parse(int code) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_250'/>
+250
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_250'>3</a>
+<span>
+
+1. parse : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+2. parse : changed conditional boundary &rarr; KILLED<br/>
+
+3. parse : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for (TransactionType type : TransactionType.values()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_251'/>
+251
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_251'>1</a>
+<span>
+
+1. parse : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if (type.code == code)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_252'/>
+252
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_252'>1</a>
+<span>
+
+1. parse : mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::parse to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;&#9;return type;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_253'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_254'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;throw new IllegalArgumentException(&#34;No transaction type exists for code &#34; + code);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_255'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_256'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6052bb69_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_257'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_234'>234</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_234'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getCode<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_238'>238</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_238'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDescription<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest.testGetOperationalProfile(edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::getDescription to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_242'>242</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_242'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getActionPhrase<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testGetMessageAsSentence(edu.ncsu.csc.itrust.action.ActivityFeedActionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::getActionPhrase to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_246'>246</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_246'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPatientViewable<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testGetMessageAsSentence(edu.ncsu.csc.itrust.action.ActivityFeedActionTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_250'>250</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_250'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testBadParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testBadParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_251'>251</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_251'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testBadParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6052bb69_252'>252</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6052bb69_252'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parse<br/><b>Killed by : </b>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/enums/TransactionType::parse to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog3(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (599 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest.testGetAllAccesses(edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest) (298 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testHCPEditDiagnoses(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (954 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testViewPrescriptionRecords1(edu.ncsu.csc.itrust.http.PatientHTTPTest) (862 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs2(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (883 ms)</li><li>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testHiddenActivityFromDLHCP(edu.ncsu.csc.itrust.action.ActivityFeedActionTest) (1054 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPEditDeactivatedPatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (942 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testAcceptance(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (702 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAllergy2(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2771 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest.testGetOperationalProfile(edu.ncsu.csc.itrust.dao.transaction.OperationalProfileTest) (124 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogNonRepresentativeView1(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (729 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testUpdateWithoutID(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (704 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNumberWith2DecimalPlaces(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1224 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminUpdateICDCode2(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (831 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogRepresentativeView(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (1431 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testHCPSendMessage(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1465 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientFifteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (637 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testModifyExistingReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1485 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatientViewLabProcedureResults(edu.ncsu.csc.itrust.http.LabProceduresTest) (1141 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_Interaction(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (911 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testUploadBadLOINCFile(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (956 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord2(edu.ncsu.csc.itrust.http.PHIRecordTest) (743 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testEmptyTypeEmptyNumber(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (644 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord3(edu.ncsu.csc.itrust.http.PHIRecordTest) (774 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testCreateNewReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1540 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionAndAllergyPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1491 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (852 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit2(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1147 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testDeleteExistingReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1115 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDHCP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testAdministratorReactivatePatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (782 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testPendingAppointmentAlert(edu.ncsu.csc.itrust.http.PendingApptTest) (917 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_Allergy(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (447 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testadminassignhcp(edu.ncsu.csc.itrust.http.WardTest) (766 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testEditPatient(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2158 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRepresentativeReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1008 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadEmptyFile(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (979 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testCauseOfDeathValidation(edu.ncsu.csc.itrust.http.EditPatientTest) (1071 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs_IgnoreDupes(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (748 ms)</li><li>edu.ncsu.csc.itrust.http.ViewPatientsUseCaseTest.testViewLHCPPatients(edu.ncsu.csc.itrust.http.ViewPatientsUseCaseTest) (1620 ms)</li><li>edu.ncsu.csc.itrust.http.SecurePasswordTest.testResetPasswordHash(edu.ncsu.csc.itrust.http.SecurePasswordTest) (842 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testNoAllergyPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1310 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown2(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (569 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testIllegalCharacters(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1246 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit1(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1173 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyReportRequestsTest.testViewMyReportRequests(edu.ncsu.csc.itrust.http.ViewMyReportRequestsTest) (954 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_InvalidZip(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (776 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadAmex(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (847 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribeOverride(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1072 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient(edu.ncsu.csc.itrust.http.SearchUserTest) (932 ms)</li><li>edu.ncsu.csc.itrust.http.NDCodeTest.testUpdateNDCode(edu.ncsu.csc.itrust.http.NDCodeTest) (564 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentImmunization2(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1268 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveyCancel(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (955 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testXMLCheckboxFalse(edu.ncsu.csc.itrust.http.GroupReportTest) (949 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC19(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (742 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics2(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1689 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_LHCPObserveIncrease(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1881 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRemovePatientsToMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testViewActivityFeed(edu.ncsu.csc.itrust.http.ActivityFeedTest) (809 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_AllergyFuture(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (282 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testEditSmokingStatus(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1247 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodMasterCards(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (817 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testSendAnEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (709 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDPatient(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (137 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_InvalidDates(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1009 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptPatientDeceased(edu.ncsu.csc.itrust.http.AppointmentTest) (981 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1521 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs_UpdateDupes(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (757 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription_AllergyOverride(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (432 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendMessageMultiRecipients(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (770 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testModifiedDate(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1316 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyProvidersTest.testViewMyProviders1(edu.ncsu.csc.itrust.http.ViewMyProvidersTest) (1060 ms)</li><li>edu.ncsu.csc.itrust.http.CreateUAPTest.testCreateUAP1(edu.ncsu.csc.itrust.http.CreateUAPTest) (908 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testNoHealthRecordException(edu.ncsu.csc.itrust.http.PHIRecordTest) (628 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testCustomPatientZip(edu.ncsu.csc.itrust.http.FindExpertTest) (812 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewSentReferrals(edu.ncsu.csc.itrust.http.ReferralsTest) (1047 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testCodeInjection(edu.ncsu.csc.itrust.http.PatientHTTPTest) (863 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testRepresenteeAppointmentDetailsFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (717 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptConflictNoOverride(edu.ncsu.csc.itrust.http.AppointmentTest) (1114 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription2(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (394 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testUpdateOfficeVisitOctothorpe(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1018 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddLabProcedure(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1121 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired3(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (758 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodAmex(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (643 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testChangePassword(edu.ncsu.csc.itrust.http.PatientHTTPTest) (1335 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testDiagnosesLink(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (1618 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1014 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRepresentativeReportWeight(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (747 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (979 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory4MonthOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1304 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddDiagnosisGood(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1433 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (1009 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (850 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testHCPViewAppointmentCalendarDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1224 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario5(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (744 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testRemoveLabProcedure(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1035 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodVisas(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (777 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_PHAView1(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (809 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptConflictOverride(edu.ncsu.csc.itrust.http.AppointmentTest) (683 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testRecordDrugInteractionSameDrugs(edu.ncsu.csc.itrust.http.DrugInteractionTest) (544 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureView(edu.ncsu.csc.itrust.http.LabProceduresTest) (861 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddHCPMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1455 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord1(edu.ncsu.csc.itrust.http.PHIRecordTest) (746 ms)</li><li>edu.ncsu.csc.itrust.http.ViewEmergencyReportTest.testGenerateReport(edu.ncsu.csc.itrust.http.ViewEmergencyReportTest) (1036 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords3(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (830 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog1(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (1085 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionDateTest.testeditOVPPrescription(edu.ncsu.csc.itrust.http.PrescriptionDateTest) (1001 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testHCPChoosesIncorrectPatient(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (927 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_SameRegionCount(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1185 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords4(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (743 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC31(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (732 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testEditAppointmentTypeDuration(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (840 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario3(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1106 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testHcpViewUpcomingAppointments(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (968 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportAcceptScenario(edu.ncsu.csc.itrust.http.GroupReportTest) (975 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (930 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testBasicHealthSmokingStatus(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (930 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testMissingField(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1197 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddDiagnosisBlank(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1360 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testPatientViewFullCalendarOfficeVisitDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1120 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationNeeders(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testEditPrescriptionLogging(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1923 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPSpecTest.testSpecialtyOnForm(edu.ncsu.csc.itrust.http.CreateHCPSpecTest) (619 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testPrescribeOverrideCancel(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1669 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testHCPViewEmergencyReport1(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (1199 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadVisas(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (660 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest.testGetSomeAccesses(edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest) (134 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics6(edu.ncsu.csc.itrust.http.EditDemographicsTest) (801 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testMID(edu.ncsu.csc.itrust.http.GroupReportTest) (1111 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testEmptyTypeFilledNumber(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (690 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testNameTooLong(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (741 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNegativeNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1244 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testEditOverrideReason(edu.ncsu.csc.itrust.http.DrugInteractionTest) (613 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testPatientViewReferralsWithDetails(edu.ncsu.csc.itrust.http.ReferralsTest) (853 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testAppointmnetRequestExpire(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (640 ms)</li><li>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testBadParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest) (0 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testCreateER(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testPatientViewDeclaredProviderFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (760 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testCreateHospital(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (825 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPCheckMetricHistory2YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (886 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC29(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (941 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testTooManyCharacters(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1271 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateValidPHA(edu.ncsu.csc.itrust.http.CreatePHATest) (559 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory5YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1459 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogNonRepresentativeView2(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (3539 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewOVFromReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientOrdering(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (582 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testInvalidPatientDates(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1227 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testInvalidPatientName(edu.ncsu.csc.itrust.http.AddPatientTest) (1142 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testaddwardtohospital(edu.ncsu.csc.itrust.http.WardTest) (1624 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testDLHCPActivityHiddenInFeed2(edu.ncsu.csc.itrust.http.ActivityFeedTest) (838 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs0(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (824 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord4(edu.ncsu.csc.itrust.http.PHIRecordTest) (703 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testMainFlow(edu.ncsu.csc.itrust.http.FindExpertTest) (701 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testEditPrescriptionNoOverrideReason(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1709 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatient9(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (542 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestConflictReject(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1358 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics1(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1754 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testViewMyRecords(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1107 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsTooMuchInput(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (862 ms)</li><li>edu.ncsu.csc.itrust.enums.TransactionTypeTest.testParse(edu.ncsu.csc.itrust.enums.TransactionTypeTest) (1 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testDetectExistingHeartDiseaseRiskTest(edu.ncsu.csc.itrust.http.PHIRecordTest) (701 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureView2(edu.ncsu.csc.itrust.http.LabProceduresTest) (1032 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired4(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (632 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyProvidersTest.testViewMyProviders2(edu.ncsu.csc.itrust.http.ViewMyProvidersTest) (1037 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient3(edu.ncsu.csc.itrust.http.SearchUserTest) (932 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (130 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testDeleteDrugInteraction(edu.ncsu.csc.itrust.http.DrugInteractionTest) (449 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testEditAppointmentTypeDurationStringInput(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (587 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (790 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatientViewLabResults(edu.ncsu.csc.itrust.http.LabProceduresTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminUpdateICDCode(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (791 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testGroupReportInvalidAge(edu.ncsu.csc.itrust.http.GroupReportTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario2(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1556 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario3(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1104 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testUnreadMessagesCount(edu.ncsu.csc.itrust.http.NotificationAreaTest) (802 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsTest.testMaintainStandardsList1(edu.ncsu.csc.itrust.http.MaintainStandardsTest) (618 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (537 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveySuccess2(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (821 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired2(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (651 ms)</li><li>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testGetMessageAsSentence(edu.ncsu.csc.itrust.action.ActivityFeedActionTest) (887 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateNullPHA(edu.ncsu.csc.itrust.http.CreatePHATest) (611 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewsReferralsList(edu.ncsu.csc.itrust.http.ReferralsTest) (697 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testDLHCPActivityHiddenInFeed1(edu.ncsu.csc.itrust.http.ActivityFeedTest) (10495 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testAcceptAnAppointment(edu.ncsu.csc.itrust.http.PendingApptTest) (1587 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testViewDemographicsTest(edu.ncsu.csc.itrust.http.EditPatientTest) (1312 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestNoConflictReject(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1176 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyPrevRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1862 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientTwelve(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (590 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPDeactivatedPatientGroupReport(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (892 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testRepresent(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (3038 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics5(edu.ncsu.csc.itrust.http.EditDemographicsTest) (704 ms)</li><li>edu.ncsu.csc.itrust.action.AddDrugListActionTest.testLoadFile(edu.ncsu.csc.itrust.action.AddDrugListActionTest) (308 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testAddNewOverrideReason(edu.ncsu.csc.itrust.http.DrugInteractionTest) (668 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyExistRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1659 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testViewMonitoringList(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1007 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testOfficeVisitRemindersEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (561 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testWeightHighlighting(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (951 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePatient1(edu.ncsu.csc.itrust.http.PHIRecordTest) (692 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord5(edu.ncsu.csc.itrust.http.PHIRecordTest) (705 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testPatientViewFullCalendarPrescriptionDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1078 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendReply(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1282 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionCancel(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1060 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportMedical(edu.ncsu.csc.itrust.http.GroupReportTest) (999 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testGetAllTransactions(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (136 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveySuccess(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (770 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminEnterNewICDCode(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (696 ms)</li><li>edu.ncsu.csc.itrust.action.EventLoggingActionTest.testGetTransactions(edu.ncsu.csc.itrust.action.EventLoggingActionTest) (185 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAddLOINC(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (636 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testHCPSendReplySingleCCRecipient(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1503 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testPatientAppointmentRequestConflict(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1317 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPReportPatientPedometerReading(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (980 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testAddAppointmentTypeLengthZero(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (656 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateValidPHA2(edu.ncsu.csc.itrust.http.CreatePHATest) (671 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testHcpLabProc(edu.ncsu.csc.itrust.http.LabProceduresTest) (765 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testOlderActivities(edu.ncsu.csc.itrust.http.ActivityFeedTest) (2452 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportDemographic(edu.ncsu.csc.itrust.http.GroupReportTest) (923 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription3(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (454 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario1(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1150 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_SameDateStartEnd(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1011 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testEditAppt(edu.ncsu.csc.itrust.http.EditApptTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribeTwice(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1739 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionOverride(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogBadDateHandling(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (959 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics2YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (628 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testConflictingAppt(edu.ncsu.csc.itrust.http.PendingApptTest) (1647 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_TestInitialPage(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (523 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPTest.testEditHospitalAssignments(edu.ncsu.csc.itrust.http.CreateHCPTest) (1079 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadBinaryData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (984 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (798 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord(edu.ncsu.csc.itrust.http.PHIRecordTest) (866 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testUploadLOINCFileInvalidLines(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (776 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadInvalidData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testPrescriptionRenewalEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (598 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testBlankPatientName(edu.ncsu.csc.itrust.http.AddPatientTest) (1191 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testAddPatientsToMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1063 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testAddLOINCFile(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (1157 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (780 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddPatientToMonitorTest(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAllPatientsUseCaseTest.testViewAllPatients(edu.ncsu.csc.itrust.http.ViewAllPatientsUseCaseTest) (885 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsNoInput(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (875 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceEntersZero(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1285 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testRemoveAppt(edu.ncsu.csc.itrust.http.EditApptTest) (1115 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testMisspellings(edu.ncsu.csc.itrust.http.EditPatientTest) (1072 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testhcpaddremovepatient(edu.ncsu.csc.itrust.http.WardTest) (1459 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testGetBarChart(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (986 ms)</li><li>edu.ncsu.csc.itrust.http.DetermineOperationalProfileTest.testDetermineOperationalProfile(edu.ncsu.csc.itrust.http.DetermineOperationalProfileTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testRepresent(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1667 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationRecord2(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1129 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelHTTPTest.testViewPrescriptionRecords(edu.ncsu.csc.itrust.http.PersonnelHTTPTest) (1675 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics3(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1753 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient2(edu.ncsu.csc.itrust.http.SearchUserTest) (990 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testAddAppointmentType(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testUpdateOfficeVisitSemicolon(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (932 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testReassignLabProcedure(edu.ncsu.csc.itrust.http.LabProceduresTest) (1460 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testMFWithPersonnelMID(edu.ncsu.csc.itrust.http.EditPatientTest) (1148 ms)</li><li>edu.ncsu.csc.itrust.action.AddDrugListActionTest.testRenameDrugs(edu.ncsu.csc.itrust.action.AddDrugListActionTest) (122 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadDuplicateField(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (928 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics24YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (419 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientThirteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (571 ms)</li><li>edu.ncsu.csc.itrust.http.NDCodeTest.testRemoveNDCode(edu.ncsu.csc.itrust.http.NDCodeTest) (530 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription4(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (452 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureViewChart(edu.ncsu.csc.itrust.http.LabProceduresTest) (1087 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown3(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (916 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testComprehensiveAcceptanceSuccess(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (932 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testGetAccessesByRole(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (220 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testViewDrugAdverseEvents(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (824 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testAddER(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (730 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testDetailedExternalData(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (885 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyFutRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1071 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadDiscovers(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (719 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics24YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1111 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientHeight(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory20YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1385 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testUpdateImmunizations(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1479 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC11(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (983 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testDLHCPAccessesHidden(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (277 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendReplyMultipleRecipients(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1683 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testValidPatient(edu.ncsu.csc.itrust.http.AddPatientTest) (1214 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentAndViewImmunizations(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (843 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testUpdateLOINC(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (753 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewDiagnosisEchoVirus(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (1083 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testHCPChoosesInvalidPatient(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testAdminEditDiagnoses(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.SecurePasswordTest.testLoginHash(edu.ncsu.csc.itrust.http.SecurePasswordTest) (889 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testHCPTelemedicineDetailsFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (767 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testadminaddremoveward(edu.ncsu.csc.itrust.http.WardTest) (858 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics2(edu.ncsu.csc.itrust.http.EditDemographicsTest) (948 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testGetAccessesBadData(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (241 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPViewHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (859 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testHCPViewEmergencyReport2(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (1182 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords5(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (753 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadMasterCards(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (652 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testDeclineAnAppointment(edu.ncsu.csc.itrust.http.PendingApptTest) (1686 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testLogFull(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (135 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPViewHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (825 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testPatientAppointmentRequestNoConflict(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (731 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testAddLabProcedureWithoutLabTech(edu.ncsu.csc.itrust.http.LabProceduresTest) (1436 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testLabProcedureInTransitToReceived(edu.ncsu.csc.itrust.http.LabProceduresTest) (1154 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodDiscovers(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (698 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testViewApptWithConflicts(edu.ncsu.csc.itrust.http.AppointmentTest) (636 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientTen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (542 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdverseImmuEventTest.testReport(edu.ncsu.csc.itrust.http.ReportAdverseImmuEventTest) (849 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentImmunization(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown1(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (613 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewDiagnoses(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (805 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (820 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_FluShotNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (830 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadInvalidField(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1000 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogByDate(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (860 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptSameEndStartTimes(edu.ncsu.csc.itrust.http.AppointmentTest) (1125 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog2(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (666 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testViewPrescriptionRecords2(edu.ncsu.csc.itrust.http.PatientHTTPTest) (813 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestNoConflictApprove(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1083 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario1(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1230 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testInvalidPatientEmail(edu.ncsu.csc.itrust.http.AddPatientTest) (914 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testInvalidPatientZip(edu.ncsu.csc.itrust.http.FindExpertTest) (931 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNotNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1151 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (713 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewHCPDetails(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (1075 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testEditApptConflictCancel(edu.ncsu.csc.itrust.http.AppointmentTest) (1407 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario4(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1183 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord6(edu.ncsu.csc.itrust.http.PHIRecordTest) (760 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadRequiredFieldMissing(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1013 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptInvalidDate(edu.ncsu.csc.itrust.http.AppointmentTest) (1089 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumference4DigitNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1096 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario4(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1273 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testRemoveImmunizationAdverseEventReport(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (813 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadValidData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1058 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHPCViewReferralsEdit(edu.ncsu.csc.itrust.http.ReferralsTest) (912 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationRecord(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1177 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogByRole(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (833 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired1(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (675 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testHCPViewAppointmentCalendar(edu.ncsu.csc.itrust.http.CalendarTest) (1250 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testAddLOINCFileNoIgnore(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (1039 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest.testReport(edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest) (712 ms)</li><li>edu.ncsu.csc.itrust.http.CreateLTSpecTest.testSpecialtyOnForm(edu.ncsu.csc.itrust.http.CreateLTSpecTest) (711 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testSecondEntry(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testRecordDrugInteraction(edu.ncsu.csc.itrust.http.DrugInteractionTest) (675 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testLinkToOfficeVisit(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (898 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (593 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testPatientViewUpcomingAppointments(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (713 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1210 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testPatientSendsMessageToReceivingHCP(edu.ncsu.csc.itrust.http.ReferralsTest) (1047 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit6(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testViewWeightAndPedometerReports(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (890 ms)</li><li>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testGetTransactions(edu.ncsu.csc.itrust.action.ActivityFeedActionTest) (400 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddReportDeleteCannotReport(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1085 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPDeactivatePatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (1171 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrendsEpidemic_InvalidThreshold(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (823 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics4MonthOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1388 ms)</li><li>edu.ncsu.csc.itrust.http.GetPatientIDTest.testSelectPatientButton(edu.ncsu.csc.itrust.http.GetPatientIDTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientFourteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (587 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics2YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1519 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs1(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (849 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testBasicHealthViewed(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1439 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario5(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1178 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPTest.testCreateValidHCP(edu.ncsu.csc.itrust.http.CreateHCPTest) (862 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testViewPatientOfficeVisit(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1183 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest.testReportAdverseEventsButton(edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest) (683 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics3(edu.ncsu.csc.itrust.http.EditDemographicsTest) (845 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testUpdateActivityFeed(edu.ncsu.csc.itrust.http.ActivityFeedTest) (2592 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testPrescriptionNoInstructions(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1350 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testDownloadButton(edu.ncsu.csc.itrust.http.GroupReportTest) (947 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testUpdateHospital(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (736 ms)</li><li>edu.ncsu.csc.itrust.http.AddNDTylenolTest.testCreateValidHCP(edu.ncsu.csc.itrust.http.AddNDTylenolTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_NoDiagnosisSelected(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (772 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddDupAllergy(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2906 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientEleven(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (575 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportPersonnel(edu.ncsu.csc.itrust.http.GroupReportTest) (845 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testERViewEmergencyReport1(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (970 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testAddLabProcedureWithLabTech(edu.ncsu.csc.itrust.http.LabProceduresTest) (1373 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (851 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testEditERDetails(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (884 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAllergy(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2722 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientWeightAndPedometer(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (778 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testScheduleAppointment(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (1039 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario2(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1000 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testInvalidPatientBirthDates(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1142 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_ImmunizationNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (996 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_RegionNotLess(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (867 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testSetPassedDate(edu.ncsu.csc.itrust.http.EditApptTest) (910 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_DiagnosedCareNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (861 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

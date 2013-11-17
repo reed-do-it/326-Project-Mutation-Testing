@@ -1,0 +1,968 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>ProcedureBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.ProcedureBean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for ProcedureBeans.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class ProcedureBeanLoader implements BeanLoader&#60;ProcedureBean&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private boolean loadOVProcedureID;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public ProcedureBeanLoader() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.loadOVProcedureID = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_23'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public ProcedureBeanLoader(boolean loadOVProcedureID) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.loadOVProcedureID = loadOVProcedureID;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;ProcedureBean&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ArrayList&#60;ProcedureBean&#62; list = new ArrayList&#60;ProcedureBean&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_29'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_32'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public ProcedureBean loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_36'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ProcedureBean procedure = new ProcedureBean(rs.getString(&#34;Code&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_37'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setDescription &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;procedure.setDescription(rs.getString(&#34;Description&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_38'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setAttribute &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;procedure.setAttribute(rs.getString(&#34;Attribute&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_39'>1</a>
+<span>
+
+1. loadSingle : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (loadOVProcedureID) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_40'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setOvProcedureID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;procedure.setOvProcedureID(rs.getLong(&#34;ID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_41'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setDate &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;procedure.setDate(rs.getDate(&#34;visitDate&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_44'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return procedure;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, ProcedureBean bean) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_49'>1</a>
+<span>
+
+1. loadParameters : removed call to java/sql/PreparedStatement::setString &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;ps.setString(1, bean.getDescription());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_50'>1</a>
+<span>
+
+1. loadParameters : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadParameters to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;return ps;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@44d89a44_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testGetAllFromEmptyTable(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testGetAllFromEmptyTable(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode2(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setDescription &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode2(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setAttribute &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode2(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest.testAddRemoveOneOVProcedure(edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setOvProcedureID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest.testAddRemoveOneOVProcedure(edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/ProcedureBean::setDate &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode2(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_49'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>none</span></span> removed call to java/sql/PreparedStatement::setString &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@44d89a44_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@44d89a44_50'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadParameters<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/ProcedureBeanLoader::loadParameters to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.report.MedicalReportFilterTest.testFilterByProcedure(edu.ncsu.csc.itrust.report.MedicalReportFilterTest) (262 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.GetProceduresTest.testGetProcedures(edu.ncsu.csc.itrust.dao.patient.GetProceduresTest) (60 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testAddDupe(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (59 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testGetImmunizations(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (215 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testGetAllFromEmptyTable(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (43 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testGetAllCPT(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (42 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testGetProcedures(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (142 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testGetters(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (132 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testUpdateCPTInformation0(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (3 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testEditProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (135 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testUpdateNonExistent(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (43 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testAddCPTCode(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (44 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testGetImmunizationCodes(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (175 ms)</li><li>edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest.testGetVisitReminders_AlivePatients(edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest) (84 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode2(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testEditImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (178 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCode(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (4 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testDeleteImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (162 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testUpdateNonExistent(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (54 ms)</li><li>edu.ncsu.csc.itrust.action.GroupReportGeneratorActionTest.testGenerateReport(edu.ncsu.csc.itrust.action.GroupReportGeneratorActionTest) (237 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testgetImmunizationCPTCodes(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (52 ms)</li><li>edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest.testGetImmunizationNeeders(edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest) (203 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testGetCPTCode(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (43 ms)</li><li>edu.ncsu.csc.itrust.report.MedicalReportFilterTest.testFilterByProcedureNoResult(edu.ncsu.csc.itrust.report.MedicalReportFilterTest) (229 ms)</li><li>edu.ncsu.csc.itrust.action.ViewReportActionTest.testGetProcedures(edu.ncsu.csc.itrust.action.ViewReportActionTest) (67 ms)</li><li>edu.ncsu.csc.itrust.serverutils.GroupReportGeneratorTest.testGroupReportGeneratorServletPost(edu.ncsu.csc.itrust.serverutils.GroupReportGeneratorTest) (135 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testDeleteProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (138 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest.testAddRemoveOneOVProcedure(edu.ncsu.csc.itrust.dao.officevisit.OVProceduresTest) (42 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testAddProcedure(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (139 ms)</li><li>edu.ncsu.csc.itrust.action.GroupReportActionTest.testGetComprehensiveMedicalInfo(edu.ncsu.csc.itrust.action.GroupReportActionTest) (154 ms)</li><li>edu.ncsu.csc.itrust.action.EditProceduresActionTest.testGetProcedureCodes(edu.ncsu.csc.itrust.action.EditProceduresActionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.action.EditImmunizationsActionTest.testAddImmunization(edu.ncsu.csc.itrust.action.EditImmunizationsActionTest) (141 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testUpdateDescription(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (58 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testOfficeVisitSubActions(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (137 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

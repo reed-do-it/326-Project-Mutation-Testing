@@ -1,0 +1,898 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>RemoteMonitoringDataBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.RemoteMonitoringDataBean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for RemoteMonitoringDataBeans.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class RemoteMonitoringDataBeanLoader implements BeanLoader&#60;RemoteMonitoringDataBean&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;RemoteMonitoringDataBean&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;RemoteMonitoringDataBean&#62; list = new ArrayList&#60;RemoteMonitoringDataBean&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_20'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_23'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/RemoteMonitoringDataBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, RemoteMonitoringDataBean bean) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_27'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;throw new IllegalStateException(&#34;unimplemented!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public RemoteMonitoringDataBean loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;RemoteMonitoringDataBean d = new RemoteMonitoringDataBean();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_32'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setLoggedInMID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setLoggedInMID(rs.getLong(&#34;PatientID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_33'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setSystolicBloodPressure &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setSystolicBloodPressure(rs.getInt(&#34;systolicBloodPressure&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_34'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setDiastolicBloodPressure &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setDiastolicBloodPressure(rs.getInt(&#34;diastolicBloodPressure&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_35'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setGlucoseLevel &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setGlucoseLevel(rs.getInt(&#34;glucoseLevel&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_36'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setHeight &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setHeight(rs.getFloat(&#34;height&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_37'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setWeight &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setWeight(rs.getFloat(&#34;weight&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_38'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setPedometerReading &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setPedometerReading(rs.getInt(&#34;pedometerReading&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_39'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setTime &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setTime(rs.getTimestamp(&#34;timeLogged&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_40'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setReporterRole &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setReporterRole(rs.getString(&#34;ReporterRole&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_41'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setReporterMID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;d.setReporterMID(rs.getLong(&#34;ReporterID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_42'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/RemoteMonitoringDataBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return d;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@629bfc05_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditMonitoringListActionTest.testIsPatientInList(edu.ncsu.csc.itrust.action.EditMonitoringListActionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EditMonitoringListActionTest.testIsPatientInList(edu.ncsu.csc.itrust.action.EditMonitoringListActionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/RemoteMonitoringDataBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setLoggedInMID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setSystolicBloodPressure &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setDiastolicBloodPressure &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setGlucoseLevel &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setHeight &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setWeight &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setPedometerReading &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setTime &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setReporterRole &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/RemoteMonitoringDataBean::setReporterMID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@629bfc05_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@629bfc05_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/RemoteMonitoringDataBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (173 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringWeightDataOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (57 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (175 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringPedometerReadingDataOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (110 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringDataGlucoseOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (105 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByDate(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest) (47 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringDataGlucoseOnlyUAP(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (90 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringDataBloodPressureOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (107 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientData(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest) (54 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest.testGetPatientDataByType(edu.ncsu.csc.itrust.action.ViewMyRemoteMonitoringListActionTest) (43 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringGlucoseLevelData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (108 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringDataUAP(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (101 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringPedometerReadingData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (94 ms)</li><li>edu.ncsu.csc.itrust.action.EditMonitoringListActionTest.testIsPatientInList(edu.ncsu.csc.itrust.action.EditMonitoringListActionTest) (44 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringWeightData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (79 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringExternalDataOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (73 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringDataBloodPressureOnlyUAP(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (90 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddRemoteMonitoringHeightWeightDataOnly(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (100 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testStoreRetrievePatientNormalData(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (53 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testRepresentativeReportStatus(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (109 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

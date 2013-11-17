@@ -1,0 +1,702 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>iTrustException.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.exception;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A specialized exception class for displaying iTrust error messages.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * This exception is handled by the default iTrust exception handler.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class iTrustException extends Exception {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private static final long serialVersionUID = 1L;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_9'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;String message = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * The typical constructor.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param message A message to be displayed to the screen.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_15'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public iTrustException(String message) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.message = message;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * For messages which are displayed to the user. Usually, this is a very general message for security</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * reasons.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;@Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String getMessage() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_25'>1</a>
+<span>
+
+1. getMessage : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (message == null)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_26'>1</a>
+<span>
+
+1. getMessage : mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;return &#34;An error has occurred. Please see log for details.&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_27'>1</a>
+<span>
+
+1. getMessage : mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return message;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * For exceptions which show a lot of technical detail, usually delegated to a subclass</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public String getExtendedMessage() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_37'>1</a>
+<span>
+
+1. getExtendedMessage : mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return &#34;No extended information.&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f65a03a_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f65a03a_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testiTrustException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f65a03a_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testiTrustException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f65a03a_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest.testUnDeclareMalformed(edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f65a03a_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f65a03a_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getExtendedMessage<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/exception/iTrustException::getExtendedMessage to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.EditPersonnelActionTest.testNonExistent(edu.ncsu.csc.itrust.action.EditPersonnelActionTest) (99 ms)</li><li>edu.ncsu.csc.itrust.action.EditPersonnelActionTest.testNotAuthorized(edu.ncsu.csc.itrust.action.EditPersonnelActionTest) (183 ms)</li><li>edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest.testBadEvent(edu.ncsu.csc.itrust.action.ReportAdverseEventActionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testEvilDatabase(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (48 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateLabProcListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateLabProcListActionTest) (37 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testDBException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testEditPatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (139 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientActionTest.testNull(edu.ncsu.csc.itrust.action.EditPatientActionTest) (46 ms)</li><li>edu.ncsu.csc.itrust.dao.personnel.AddPersonnelTest.testDoesNotExist(edu.ncsu.csc.itrust.dao.personnel.AddPersonnelTest) (35 ms)</li><li>edu.ncsu.csc.itrust.action.EditPersonnelActionTest.testNotAuthorized2(edu.ncsu.csc.itrust.action.EditPersonnelActionTest) (137 ms)</li><li>edu.ncsu.csc.itrust.action.DrugInteractionActionTest.testReportAlreadyAdded(edu.ncsu.csc.itrust.action.DrugInteractionActionTest) (88 ms)</li><li>edu.ncsu.csc.itrust.action.DrugInteractionActionTest.testEvilDAOFactory(edu.ncsu.csc.itrust.action.DrugInteractionActionTest) (131 ms)</li><li>edu.ncsu.csc.itrust.action.GetUserNameActionTest.testWrongFormat(edu.ncsu.csc.itrust.action.GetUserNameActionTest) (40 ms)</li><li>edu.ncsu.csc.itrust.action.ManageHospitalAssignmentsActionTest.testAssignDuplicate(edu.ncsu.csc.itrust.action.ManageHospitalAssignmentsActionTest) (49 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testViewOfficeVisit(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (136 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.AddEditHospitalDAOTest.testAddDupe(edu.ncsu.csc.itrust.dao.hospital.AddEditHospitalDAOTest) (69 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest.testAddCPTCodeEvil(edu.ncsu.csc.itrust.action.UpdateCPTCodeListActionTest) (1 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testOVID(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (56 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (36 ms)</li><li>edu.ncsu.csc.itrust.action.EditPersonnelActionTest.testNull(edu.ncsu.csc.itrust.action.EditPersonnelActionTest) (43 ms)</li><li>edu.ncsu.csc.itrust.action.PatientBaseActionTest.testEvilDatabase(edu.ncsu.csc.itrust.action.PatientBaseActionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.AddPatientTest.testGetEmptyPatient(edu.ncsu.csc.itrust.dao.patient.AddPatientTest) (35 ms)</li><li>edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest.testValidatePRError(edu.ncsu.csc.itrust.dao.remotemonitoring.PatientDataTest) (48 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testAddPatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (164 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.ResetPasswordTest.testGetNoSecurityAnswer(edu.ncsu.csc.itrust.dao.auth.ResetPasswordTest) (42 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.RepresentativeTest.testAddExistingRepresentative(edu.ncsu.csc.itrust.dao.patient.RepresentativeTest) (50 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testValidate(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (203 ms)</li><li>edu.ncsu.csc.itrust.action.ResetPasswordActionTest.testCheckWrongRole(edu.ncsu.csc.itrust.action.ResetPasswordActionTest) (42 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringWeightData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (79 ms)</li><li>edu.ncsu.csc.itrust.action.ViewPrescriptionRenewalNeedsActionTest.testDBException(edu.ncsu.csc.itrust.action.ViewPrescriptionRenewalNeedsActionTest) (80 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateReasonCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateReasonCodeListActionTest) (39 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientActionTest.testWrongFormat(edu.ncsu.csc.itrust.action.EditPatientActionTest) (55 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testViewNonExistantRecords(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (131 ms)</li><li>edu.ncsu.csc.itrust.action.LoginFailureActionTest.testRecordLoginFailureEvil(edu.ncsu.csc.itrust.action.LoginFailureActionTest) (33 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.CPTCodeTest.testAddDupe(edu.ncsu.csc.itrust.dao.standards.CPTCodeTest) (59 ms)</li><li>edu.ncsu.csc.itrust.dao.hospital.AssignHospitalDAOTest.testDoItTwice(edu.ncsu.csc.itrust.dao.hospital.AssignHospitalDAOTest) (40 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.DeclareHCPTest.testDeclareDuplicateHCP(edu.ncsu.csc.itrust.dao.patient.DeclareHCPTest) (50 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest.testSetViewedToZero(edu.ncsu.csc.itrust.action.ViewMyReportRequestsActionTest) (52 ms)</li><li>edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest.testiTrustException(edu.ncsu.csc.itrust.dao.access.AccessDAOExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringGlucoseLevelData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (108 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTest.testConstructPoorly(edu.ncsu.csc.itrust.action.EditPHRActionTest) (140 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest.testUnDeclareMalformed(edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest) (0 ms)</li><li>edu.ncsu.csc.itrust.action.ViewPersonnelActionTest.testNoPersonnel(edu.ncsu.csc.itrust.action.ViewPersonnelActionTest) (42 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest.testDeletePatientInstructions(edu.ncsu.csc.itrust.action.EditPatientInstructionsActionTest) (202 ms)</li><li>edu.ncsu.csc.itrust.risk.Type1DiabetesTest.testNoPHR(edu.ncsu.csc.itrust.risk.Type1DiabetesTest) (75 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.NDCodeTest.testAddDupe(edu.ncsu.csc.itrust.dao.standards.NDCodeTest) (49 ms)</li><li>edu.ncsu.csc.itrust.action.EditPersonnelActionTest.testWrongFormat(edu.ncsu.csc.itrust.action.EditPersonnelActionTest) (43 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateNDCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateNDCodeListActionTest) (58 ms)</li><li>edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest.testOVDoesntExist(edu.ncsu.csc.itrust.action.EditOfficeVisitActionTest) (50 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest.testDeclareMalformed(edu.ncsu.csc.itrust.action.DeclareHCPActionExceptionTest) (2 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (41 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateNDCodeListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateNDCodeListActionTest) (49 ms)</li><li>edu.ncsu.csc.itrust.action.EditRepresentativesActionTest.testCannotRepresentSelf(edu.ncsu.csc.itrust.action.EditRepresentativesActionTest) (50 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (173 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.ResetPasswordTest.testGetNoSecurityQuestion(edu.ncsu.csc.itrust.dao.auth.ResetPasswordTest) (58 ms)</li><li>edu.ncsu.csc.itrust.dao.auth.AddUserTest.test500Gone(edu.ncsu.csc.itrust.dao.auth.AddUserTest) (39 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest) (37 ms)</li><li>edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest.testBadReminderType(edu.ncsu.csc.itrust.action.GetVisitRemindersActionTest) (154 ms)</li><li>edu.ncsu.csc.itrust.action.EditPatientActionTest.testNonExistent(edu.ncsu.csc.itrust.action.EditPatientActionTest) (44 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest.testEvilFactory2(edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest) (75 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionTest.testDeclareAdmin(edu.ncsu.csc.itrust.action.DeclareHCPActionTest) (91 ms)</li><li>edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest.testAddBadRemoteMonitoringPedometerReadingData(edu.ncsu.csc.itrust.action.AddRemoteMonitoringDataActionTest) (94 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateHospitalListActionTest) (39 ms)</li><li>edu.ncsu.csc.itrust.action.SetSecurityQuestionTest.testNotUserID(edu.ncsu.csc.itrust.action.SetSecurityQuestionTest) (41 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateReasonCodeListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateReasonCodeListActionTest) (36 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionTest.testDeclareAlreadyDeclared(edu.ncsu.csc.itrust.action.DeclareHCPActionTest) (61 ms)</li><li>edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest.testAddPrescription5(edu.ncsu.csc.itrust.action.EditPrescriptionsActionTest) (152 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testCannotRepresent(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (128 ms)</li><li>edu.ncsu.csc.itrust.risk.ChronicDiseaseMediatorTest.testNoRecords(edu.ncsu.csc.itrust.risk.ChronicDiseaseMediatorTest) (38 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateORCListActionTest.testEvilFactory(edu.ncsu.csc.itrust.action.UpdateORCListActionTest) (44 ms)</li><li>edu.ncsu.csc.itrust.action.ViewPersonnelActionTest.testNotANumber(edu.ncsu.csc.itrust.action.ViewPersonnelActionTest) (38 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateORCListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateORCListActionTest) (45 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

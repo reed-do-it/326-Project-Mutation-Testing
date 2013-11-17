@@ -1,0 +1,884 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>DiagnosisBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.DiagnosisBean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for DiagnosisBeans.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader} </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class DiagnosisBeanLoader implements BeanLoader&#60;DiagnosisBean&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private boolean loadOVDiagnosisID = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public DiagnosisBeanLoader() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;loadOVDiagnosisID = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public DiagnosisBeanLoader(boolean loadOVDiagnosisID) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.loadOVDiagnosisID = loadOVDiagnosisID;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_26'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;DiagnosisBean&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ArrayList&#60;DiagnosisBean&#62; list = new ArrayList&#60;DiagnosisBean&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_30'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_33'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/DiagnosisBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public DiagnosisBean loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_38'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;DiagnosisBean diag = new DiagnosisBean(rs.getString(&#34;Code&#34;), rs.getString(&#34;Description&#34;), rs.getString(&#34;Chronic&#34;), rs.getString(&#34;URL&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;//DiagnosisBean diag = new DiagnosisBean(rs.getString(&#34;Code&#34;), rs.getString(&#34;Description&#34;), rs.getString(&#34;Chronic&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_40'>1</a>
+<span>
+
+1. loadSingle : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (loadOVDiagnosisID) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_41'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/DiagnosisBean::setOvDiagnosisID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;diag.setOvDiagnosisID(rs.getInt(&#34;ID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_42'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/DiagnosisBean::setVisitID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;diag.setVisitID(rs.getLong(&#34;VisitID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_44'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/DiagnosisBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return diag;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, DiagnosisBean bean) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_48'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;throw new IllegalStateException(&#34;unimplemented!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.ICDCodeTest.testGetAllICD(edu.ncsu.csc.itrust.dao.standards.ICDCodeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.ICDCodeTest.testGetAllICD(edu.ncsu.csc.itrust.dao.standards.ICDCodeTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/DiagnosisBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.ICDCodeTest.testGetAllICD(edu.ncsu.csc.itrust.dao.standards.ICDCodeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EmergencyReportActionTest.testBaseCase(edu.ncsu.csc.itrust.action.EmergencyReportActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/DiagnosisBean::setOvDiagnosisID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.action.EmergencyReportActionTest.testBaseCase(edu.ncsu.csc.itrust.action.EmergencyReportActionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/DiagnosisBean::setVisitID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b9c6b87_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b9c6b87_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.standards.ICDCodeTest.testGetAllICD(edu.ncsu.csc.itrust.dao.standards.ICDCodeTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/DiagnosisBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testGetDiagnosisCodes(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (377 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.GetPrescriptionsTest.testNotPatient200(edu.ncsu.csc.itrust.dao.patient.GetPrescriptionsTest) (133 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.GetDiagnosesTest.testNotPatient200(edu.ncsu.csc.itrust.dao.patient.GetDiagnosesTest) (210 ms)</li><li>edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest.testGetDiagnosisStatisticsValid(edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest) (417 ms)</li><li>edu.ncsu.csc.itrust.dao.access.UpdatePrivacyLevelTest.testUpdatePrivacyLevelWithoutAccess(edu.ncsu.csc.itrust.dao.access.UpdatePrivacyLevelTest) (431 ms)</li><li>edu.ncsu.csc.itrust.dao.patient.GetDiagnosesTest.testGetPatient2(edu.ncsu.csc.itrust.dao.patient.GetDiagnosesTest) (217 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testGetDiagnoses(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (386 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testDeleteDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (383 ms)</li><li>edu.ncsu.csc.itrust.action.EmergencyReportActionTest.testBaseCase(edu.ncsu.csc.itrust.action.EmergencyReportActionTest) (129 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testUpdateNonExistent(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (147 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario1(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1150 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testAddICDCode(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.action.GroupReportGeneratorActionTest.testGenerateReport(edu.ncsu.csc.itrust.action.GroupReportGeneratorActionTest) (673 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testAddDuplicate(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (146 ms)</li><li>edu.ncsu.csc.itrust.dao.access.UpdatePrivacyLevelTest.testUpdatePrivacyLevelWithAccess(edu.ncsu.csc.itrust.dao.access.UpdatePrivacyLevelTest) (270 ms)</li><li>edu.ncsu.csc.itrust.action.EditPHRActionTest.testObtainInformation(edu.ncsu.csc.itrust.action.EditPHRActionTest) (496 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testDoesFamilyMemberHaveHeartDisease(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (414 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testDoesFamilyMemberHaveCancer(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (380 ms)</li><li>edu.ncsu.csc.itrust.dao.officevisit.OVDiagnosesTest.testAddRemoveOneOVDiagnosis(edu.ncsu.csc.itrust.dao.officevisit.OVDiagnosesTest) (414 ms)</li><li>edu.ncsu.csc.itrust.action.MyDiagnosisActionTest.testGetHCPByDiagnosis(edu.ncsu.csc.itrust.action.MyDiagnosisActionTest) (364 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testViewMyRecords(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (447 ms)</li><li>edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest.testGetDiagnosisStatisticsInvalidICDCode(edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest) (414 ms)</li><li>edu.ncsu.csc.itrust.serverutils.GroupReportGeneratorTest.testGroupReportGeneratorServletPost(edu.ncsu.csc.itrust.serverutils.GroupReportGeneratorTest) (159 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testGetFamilyMemberCOD(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (400 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testEditDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (393 ms)</li><li>edu.ncsu.csc.itrust.report.MedicalReportFilterTest.testFilterByMissingDiagnosesICDCode(edu.ncsu.csc.itrust.report.MedicalReportFilterTest) (653 ms)</li><li>edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest.testGetDiagnosisCodes(edu.ncsu.csc.itrust.action.ViewDiagnosisStatisticsActionTest) (411 ms)</li><li>edu.ncsu.csc.itrust.action.EditDiagnosesActionTest.testAddDiagnosis(edu.ncsu.csc.itrust.action.EditDiagnosesActionTest) (345 ms)</li><li>edu.ncsu.csc.itrust.dao.standards.ICDCodeTest.testGetAllICD(edu.ncsu.csc.itrust.dao.standards.ICDCodeTest) (133 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest.testDoesFamilyMemberHaveDiabetes(edu.ncsu.csc.itrust.action.ViewMyRecordsActionTest) (355 ms)</li><li>edu.ncsu.csc.itrust.report.MedicalReportFilterTest.testFilterByICDCode(edu.ncsu.csc.itrust.report.MedicalReportFilterTest) (764 ms)</li><li>edu.ncsu.csc.itrust.action.GroupReportActionTest.testGetComprehensiveMedicalInfo(edu.ncsu.csc.itrust.action.GroupReportActionTest) (529 ms)</li><li>edu.ncsu.csc.itrust.action.ViewReportActionTest.testGetDiagnoses(edu.ncsu.csc.itrust.action.ViewReportActionTest) (228 ms)</li><li>edu.ncsu.csc.itrust.action.MyDiagnosisActionTest.testGetDiagnoses(edu.ncsu.csc.itrust.action.MyDiagnosisActionTest) (309 ms)</li><li>edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest.testUpdateICDInformation0(edu.ncsu.csc.itrust.action.UpdateICDCodeListActionTest) (135 ms)</li><li>edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest.testOfficeVisitSubActions(edu.ncsu.csc.itrust.action.ViewOfficeVisitActionTest) (340 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>
