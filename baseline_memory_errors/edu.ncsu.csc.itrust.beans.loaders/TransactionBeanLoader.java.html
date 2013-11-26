@@ -1,0 +1,814 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>TransactionBeanLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.ncsu.csc.itrust.beans.loaders;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.PreparedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.ResultSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.beans.TransactionBean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.ncsu.csc.itrust.enums.TransactionType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A loader for TransactionBeans.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Loads in information to/from beans using ResultSets and PreparedStatements. Use the superclass to enforce consistency. </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * For details on the paradigm for a loader (and what its methods do), see {@link BeanLoader}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class TransactionBeanLoader implements BeanLoader&#60;TransactionBean&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;TransactionBean&#62; loadList(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;TransactionBean&#62; list = new ArrayList&#60;TransactionBean&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_21'>1</a>
+<span>
+
+1. loadList : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;while (rs.next()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;list.add(loadSingle(rs));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_24'>1</a>
+<span>
+
+1. loadList : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/TransactionBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public PreparedStatement loadParameters(PreparedStatement ps, TransactionBean bean) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;throw new IllegalStateException(&#34;unimplemented!&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public TransactionBean loadSingle(ResultSet rs) throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;TransactionBean t = new TransactionBean();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_33'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setAddedInfo &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setAddedInfo(rs.getString(&#34;addedInfo&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_34'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setLoggedInMID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setLoggedInMID(rs.getLong(&#34;loggedInMID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_35'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setSecondaryMID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setSecondaryMID(rs.getLong(&#34;secondaryMID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_36'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTimeLogged &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setTimeLogged(rs.getTimestamp(&#34;timeLogged&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_37'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTransactionType &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setTransactionType(TransactionType.parse(rs.getInt(&#34;transactionCode&#34;)));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_38'>1</a>
+<span>
+
+1. loadSingle : removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTransactionID &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;t.setTransactionID(rs.getLong(&#34;transactionID&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_39'>1</a>
+<span>
+
+1. loadSingle : mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/TransactionBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return t;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@18973159_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@18973159_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadList<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/TransactionBeanLoader::loadList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setAddedInfo &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setLoggedInMID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setSecondaryMID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTimeLogged &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTransactionType &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> removed call to edu/ncsu/csc/itrust/beans/TransactionBean::setTransactionID &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@18973159_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@18973159_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadSingle<br/><b>Killed by : </b>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest)</span></span> mutated return of Object value for edu/ncsu/csc/itrust/beans/loaders/TransactionBeanLoader::loadSingle to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog3(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (599 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest.testGetAllAccesses(edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest) (298 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testHCPEditDiagnoses(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (954 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testViewPrescriptionRecords1(edu.ncsu.csc.itrust.http.PatientHTTPTest) (862 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs2(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (883 ms)</li><li>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testHiddenActivityFromDLHCP(edu.ncsu.csc.itrust.action.ActivityFeedActionTest) (1054 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPEditDeactivatedPatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (942 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testAcceptance(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (702 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAllergy2(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2771 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogNonRepresentativeView1(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (729 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testUpdateWithoutID(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (704 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNumberWith2DecimalPlaces(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1224 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminUpdateICDCode2(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (831 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogRepresentativeView(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (1431 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testHCPSendMessage(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1465 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientFifteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (637 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testModifyExistingReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1485 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatientViewLabProcedureResults(edu.ncsu.csc.itrust.http.LabProceduresTest) (1141 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionTest.testUnDeclareNotDeclared(edu.ncsu.csc.itrust.action.DeclareHCPActionTest) (212 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (911 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testUploadBadLOINCFile(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (956 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord2(edu.ncsu.csc.itrust.http.PHIRecordTest) (743 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testEmptyTypeEmptyNumber(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (644 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord3(edu.ncsu.csc.itrust.http.PHIRecordTest) (774 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testCreateNewReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1540 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionAndAllergyPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1491 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (852 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit2(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1147 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testDeleteExistingReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (1115 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDHCP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (134 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testAdministratorReactivatePatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (782 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testPendingAppointmentAlert(edu.ncsu.csc.itrust.http.PendingApptTest) (917 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testadminassignhcp(edu.ncsu.csc.itrust.http.WardTest) (766 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testEditPatient(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2158 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRepresentativeReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1008 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadEmptyFile(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (979 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testCauseOfDeathValidation(edu.ncsu.csc.itrust.http.EditPatientTest) (1071 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs_IgnoreDupes(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (748 ms)</li><li>edu.ncsu.csc.itrust.http.ViewPatientsUseCaseTest.testViewLHCPPatients(edu.ncsu.csc.itrust.http.ViewPatientsUseCaseTest) (1620 ms)</li><li>edu.ncsu.csc.itrust.http.SecurePasswordTest.testResetPasswordHash(edu.ncsu.csc.itrust.http.SecurePasswordTest) (842 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testNoAllergyPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1310 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown2(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (569 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testIllegalCharacters(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1246 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit1(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1173 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyReportRequestsTest.testViewMyReportRequests(edu.ncsu.csc.itrust.http.ViewMyReportRequestsTest) (954 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_InvalidZip(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (776 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadAmex(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (847 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribeOverride(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1072 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient(edu.ncsu.csc.itrust.http.SearchUserTest) (932 ms)</li><li>edu.ncsu.csc.itrust.http.NDCodeTest.testUpdateNDCode(edu.ncsu.csc.itrust.http.NDCodeTest) (564 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentImmunization2(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1268 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveyCancel(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (955 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testXMLCheckboxFalse(edu.ncsu.csc.itrust.http.GroupReportTest) (949 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC19(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (742 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics2(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1689 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_LHCPObserveIncrease(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1881 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRemovePatientsToMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testViewActivityFeed(edu.ncsu.csc.itrust.http.ActivityFeedTest) (809 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testEditSmokingStatus(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1247 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodMasterCards(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (817 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testSendAnEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (709 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDPatient(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (137 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_InvalidDates(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1009 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptPatientDeceased(edu.ncsu.csc.itrust.http.AppointmentTest) (981 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribe(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1521 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs_UpdateDupes(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (757 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendMessageMultiRecipients(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (770 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testModifiedDate(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1316 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyProvidersTest.testViewMyProviders1(edu.ncsu.csc.itrust.http.ViewMyProvidersTest) (1060 ms)</li><li>edu.ncsu.csc.itrust.http.CreateUAPTest.testCreateUAP1(edu.ncsu.csc.itrust.http.CreateUAPTest) (908 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testNoHealthRecordException(edu.ncsu.csc.itrust.http.PHIRecordTest) (628 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testCustomPatientZip(edu.ncsu.csc.itrust.http.FindExpertTest) (812 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewSentReferrals(edu.ncsu.csc.itrust.http.ReferralsTest) (1047 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testCodeInjection(edu.ncsu.csc.itrust.http.PatientHTTPTest) (863 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testRepresenteeAppointmentDetailsFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (717 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptConflictNoOverride(edu.ncsu.csc.itrust.http.AppointmentTest) (1114 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testUpdateOfficeVisitOctothorpe(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1018 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddLabProcedure(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1121 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired3(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (758 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodAmex(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (643 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testChangePassword(edu.ncsu.csc.itrust.http.PatientHTTPTest) (1335 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testDiagnosesLink(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (1618 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1014 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testRepresentativeReportWeight(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (747 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (979 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory4MonthOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1304 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddDiagnosisGood(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1433 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (1009 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientStatus(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (850 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testHCPViewAppointmentCalendarDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1224 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario5(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (744 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testRemoveLabProcedure(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1035 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodVisas(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (777 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_PHAView1(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (809 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptConflictOverride(edu.ncsu.csc.itrust.http.AppointmentTest) (683 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testRecordDrugInteractionSameDrugs(edu.ncsu.csc.itrust.http.DrugInteractionTest) (544 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureView(edu.ncsu.csc.itrust.http.LabProceduresTest) (861 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddHCPMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1455 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord1(edu.ncsu.csc.itrust.http.PHIRecordTest) (746 ms)</li><li>edu.ncsu.csc.itrust.http.ViewEmergencyReportTest.testGenerateReport(edu.ncsu.csc.itrust.http.ViewEmergencyReportTest) (1036 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords3(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (830 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog1(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (1085 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionDateTest.testeditOVPPrescription(edu.ncsu.csc.itrust.http.PrescriptionDateTest) (1001 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testHCPChoosesIncorrectPatient(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (927 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_SameRegionCount(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1185 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords4(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (743 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC31(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (732 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testEditAppointmentTypeDuration(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (840 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario3(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1106 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testHcpViewUpcomingAppointments(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (968 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportAcceptScenario(edu.ncsu.csc.itrust.http.GroupReportTest) (975 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (930 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testBasicHealthSmokingStatus(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (930 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testMissingField(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1197 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest.testAddDiagnosisBlank(edu.ncsu.csc.itrust.http.DocumentOfficeVisitUseCaseTest) (1360 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testPatientViewFullCalendarOfficeVisitDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1120 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationNeeders(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testEditPrescriptionLogging(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1923 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPSpecTest.testSpecialtyOnForm(edu.ncsu.csc.itrust.http.CreateHCPSpecTest) (619 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testPrescribeOverrideCancel(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1669 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testHCPViewEmergencyReport1(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (1199 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadVisas(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (660 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest.testGetSomeAccesses(edu.ncsu.csc.itrust.dao.transaction.AccessRecordTest) (134 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics6(edu.ncsu.csc.itrust.http.EditDemographicsTest) (801 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testMID(edu.ncsu.csc.itrust.http.GroupReportTest) (1111 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testEmptyTypeFilledNumber(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (690 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testNameTooLong(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (741 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNegativeNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1244 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testEditOverrideReason(edu.ncsu.csc.itrust.http.DrugInteractionTest) (613 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testPatientViewReferralsWithDetails(edu.ncsu.csc.itrust.http.ReferralsTest) (853 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testAppointmnetRequestExpire(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (640 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testCreateER(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testPatientViewDeclaredProviderFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (760 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testCreateHospital(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (825 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPCheckMetricHistory2YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (886 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC29(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (941 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testTooManyCharacters(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1271 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateValidPHA(edu.ncsu.csc.itrust.http.CreatePHATest) (559 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory5YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1459 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogNonRepresentativeView2(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (3539 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewOVFromReferral(edu.ncsu.csc.itrust.http.ReferralsTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientOrdering(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (582 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testInvalidPatientDates(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1227 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testInvalidPatientName(edu.ncsu.csc.itrust.http.AddPatientTest) (1142 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testaddwardtohospital(edu.ncsu.csc.itrust.http.WardTest) (1624 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testDLHCPActivityHiddenInFeed2(edu.ncsu.csc.itrust.http.ActivityFeedTest) (838 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs0(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (824 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord4(edu.ncsu.csc.itrust.http.PHIRecordTest) (703 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testMainFlow(edu.ncsu.csc.itrust.http.FindExpertTest) (701 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testEditPrescriptionNoOverrideReason(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1709 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatient9(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (542 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestConflictReject(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1358 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics1(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1754 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testViewMyRecords(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1107 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsTooMuchInput(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (862 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testDetectExistingHeartDiseaseRiskTest(edu.ncsu.csc.itrust.http.PHIRecordTest) (701 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureView2(edu.ncsu.csc.itrust.http.LabProceduresTest) (1032 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired4(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (632 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyProvidersTest.testViewMyProviders2(edu.ncsu.csc.itrust.http.ViewMyProvidersTest) (1037 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient3(edu.ncsu.csc.itrust.http.SearchUserTest) (932 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testSecondaryMIDUAP(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (130 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testDeleteDrugInteraction(edu.ncsu.csc.itrust.http.DrugInteractionTest) (449 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testNoProblems(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (213 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testEditAppointmentTypeDurationStringInput(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (587 ms)</li><li>edu.ncsu.csc.itrust.http.ImportNDCodesTest.testImportDrugs(edu.ncsu.csc.itrust.http.ImportNDCodesTest) (790 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatientViewLabResults(edu.ncsu.csc.itrust.http.LabProceduresTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminUpdateICDCode(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (791 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testGroupReportInvalidAge(edu.ncsu.csc.itrust.http.GroupReportTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario2(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1556 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario3(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1104 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testUnreadMessagesCount(edu.ncsu.csc.itrust.http.NotificationAreaTest) (802 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (537 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsTest.testMaintainStandardsList1(edu.ncsu.csc.itrust.http.MaintainStandardsTest) (618 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveySuccess2(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (821 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired2(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (651 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateNullPHA(edu.ncsu.csc.itrust.http.CreatePHATest) (611 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHCPViewsReferralsList(edu.ncsu.csc.itrust.http.ReferralsTest) (697 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testDLHCPActivityHiddenInFeed1(edu.ncsu.csc.itrust.http.ActivityFeedTest) (10495 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testAcceptAnAppointment(edu.ncsu.csc.itrust.http.PendingApptTest) (1587 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testViewDemographicsTest(edu.ncsu.csc.itrust.http.EditPatientTest) (1312 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestNoConflictReject(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1176 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyPrevRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1862 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientTwelve(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (590 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPDeactivatedPatientGroupReport(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (892 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testRepresent(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (3038 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics5(edu.ncsu.csc.itrust.http.EditDemographicsTest) (704 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testAddNewOverrideReason(edu.ncsu.csc.itrust.http.DrugInteractionTest) (668 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyExistRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1659 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testViewMonitoringList(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1007 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testOfficeVisitRemindersEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (561 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testWeightHighlighting(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (951 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePatient1(edu.ncsu.csc.itrust.http.PHIRecordTest) (692 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord5(edu.ncsu.csc.itrust.http.PHIRecordTest) (705 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testPatientViewFullCalendarPrescriptionDetails(edu.ncsu.csc.itrust.http.CalendarTest) (1078 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendReply(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1282 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionCancel(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1060 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportMedical(edu.ncsu.csc.itrust.http.GroupReportTest) (999 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testGetAllTransactions(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (136 ms)</li><li>edu.ncsu.csc.itrust.http.SurveyUseCaseTest.testTakeSatisfactionSurveySuccess(edu.ncsu.csc.itrust.http.SurveyUseCaseTest) (770 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAdminEnterNewICDCode(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (696 ms)</li><li>edu.ncsu.csc.itrust.action.EventLoggingActionTest.testGetTransactions(edu.ncsu.csc.itrust.action.EventLoggingActionTest) (185 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testAddLOINC(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (636 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testHCPSendReplySingleCCRecipient(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1503 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testPatientAppointmentRequestConflict(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1317 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPReportPatientPedometerReading(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (980 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testAddAppointmentTypeLengthZero(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (656 ms)</li><li>edu.ncsu.csc.itrust.http.CreatePHATest.testCreateValidPHA2(edu.ncsu.csc.itrust.http.CreatePHATest) (671 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testHcpLabProc(edu.ncsu.csc.itrust.http.LabProceduresTest) (765 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testOlderActivities(edu.ncsu.csc.itrust.http.ActivityFeedTest) (2452 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportDemographic(edu.ncsu.csc.itrust.http.GroupReportTest) (923 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario1(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1150 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_SameDateStartEnd(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (1011 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testEditAppt(edu.ncsu.csc.itrust.http.EditApptTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testAllergicPrescribeTwice(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1739 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest.testInteractionOverride(edu.ncsu.csc.itrust.http.PrescriptionInteractionAndAllergyTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogBadDateHandling(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (959 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics2YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (628 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testConflictingAppt(edu.ncsu.csc.itrust.http.PendingApptTest) (1647 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_TestInitialPage(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (523 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPTest.testEditHospitalAssignments(edu.ncsu.csc.itrust.http.CreateHCPTest) (1079 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadBinaryData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (984 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (798 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord(edu.ncsu.csc.itrust.http.PHIRecordTest) (866 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testUploadLOINCFileInvalidLines(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (776 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadInvalidData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.SendEmailNotificationTest.testPrescriptionRenewalEmail(edu.ncsu.csc.itrust.http.SendEmailNotificationTest) (598 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testBlankPatientName(edu.ncsu.csc.itrust.http.AddPatientTest) (1191 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testAddPatientsToMonitor(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1063 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testAddLOINCFile(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (1157 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsZipCodeFormat3(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (780 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddPatientToMonitorTest(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAllPatientsUseCaseTest.testViewAllPatients(edu.ncsu.csc.itrust.http.ViewAllPatientsUseCaseTest) (885 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSurveyResultsNoInput(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (875 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceEntersZero(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1285 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testRemoveAppt(edu.ncsu.csc.itrust.http.EditApptTest) (1115 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testMisspellings(edu.ncsu.csc.itrust.http.EditPatientTest) (1072 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testhcpaddremovepatient(edu.ncsu.csc.itrust.http.WardTest) (1459 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testGetBarChart(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (986 ms)</li><li>edu.ncsu.csc.itrust.http.DetermineOperationalProfileTest.testDetermineOperationalProfile(edu.ncsu.csc.itrust.http.DetermineOperationalProfileTest) (933 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testRepresent(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1667 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationRecord2(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1129 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelHTTPTest.testViewPrescriptionRecords(edu.ncsu.csc.itrust.http.PersonnelHTTPTest) (1675 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAdditionalDemographics3(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1753 ms)</li><li>edu.ncsu.csc.itrust.http.SearchUserTest.testGetPatient2(edu.ncsu.csc.itrust.http.SearchUserTest) (990 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testAddAppointmentType(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (751 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testUpdateOfficeVisitSemicolon(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (932 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testReassignLabProcedure(edu.ncsu.csc.itrust.http.LabProceduresTest) (1460 ms)</li><li>edu.ncsu.csc.itrust.http.EditPatientTest.testMFWithPersonnelMID(edu.ncsu.csc.itrust.http.EditPatientTest) (1148 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadDuplicateField(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (928 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics24YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (419 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientThirteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (571 ms)</li><li>edu.ncsu.csc.itrust.http.NDCodeTest.testRemoveNDCode(edu.ncsu.csc.itrust.http.NDCodeTest) (530 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testPatient_LabProcedureViewChart(edu.ncsu.csc.itrust.http.LabProceduresTest) (1087 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown3(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (916 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testComprehensiveAcceptanceSuccess(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (932 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testGetAccessesByRole(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (220 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testViewDrugAdverseEvents(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (824 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testAddER(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (730 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testDetailedExternalData(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (885 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddAllergyFutRX(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1071 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadDiscovers(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (719 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics24YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1111 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientHeight(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPOfficeVisitAddMetricsCheckMetricHistory20YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1385 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testUpdateImmunizations(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1479 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest.testUC11(edu.ncsu.csc.itrust.http.PrescriptionInstructionsTest) (983 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testDLHCPAccessesHidden(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (277 ms)</li><li>edu.ncsu.csc.itrust.http.MessagingUseCaseTest.testPatientSendReplyMultipleRecipients(edu.ncsu.csc.itrust.http.MessagingUseCaseTest) (1683 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testValidPatient(edu.ncsu.csc.itrust.http.AddPatientTest) (1214 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentAndViewImmunizations(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (843 ms)</li><li>edu.ncsu.csc.itrust.http.MaintainStandardsUseCase.testUpdateLOINC(edu.ncsu.csc.itrust.http.MaintainStandardsUseCase) (753 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewDiagnosisEchoVirus(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (1083 ms)</li><li>edu.ncsu.csc.itrust.http.ComprehensiveReportingTest.testHCPChoosesInvalidPatient(edu.ncsu.csc.itrust.http.ComprehensiveReportingTest) (997 ms)</li><li>edu.ncsu.csc.itrust.http.EditDiagnosesTest.testAdminEditDiagnoses(edu.ncsu.csc.itrust.http.EditDiagnosesTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.SecurePasswordTest.testLoginHash(edu.ncsu.csc.itrust.http.SecurePasswordTest) (889 ms)</li><li>edu.ncsu.csc.itrust.http.NotificationAreaTest.testHCPTelemedicineDetailsFromNotificationCenter(edu.ncsu.csc.itrust.http.NotificationAreaTest) (767 ms)</li><li>edu.ncsu.csc.itrust.http.WardTest.testadminaddremoveward(edu.ncsu.csc.itrust.http.WardTest) (858 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics2(edu.ncsu.csc.itrust.http.EditDemographicsTest) (948 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testGetAccessesBadData(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (241 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPViewHealthMetrics20YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (859 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testHCPViewEmergencyReport2(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (1182 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testViewRecords5(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (753 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testBadMasterCards(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (652 ms)</li><li>edu.ncsu.csc.itrust.action.DeclareHCPActionTest.testDeclareAlreadyDeclared(edu.ncsu.csc.itrust.action.DeclareHCPActionTest) (175 ms)</li><li>edu.ncsu.csc.itrust.http.PendingApptTest.testDeclineAnAppointment(edu.ncsu.csc.itrust.http.PendingApptTest) (1686 ms)</li><li>edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest.testLogFull(edu.ncsu.csc.itrust.dao.transaction.LogTransactionTest) (135 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testHCPViewHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (825 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testPatientAppointmentRequestNoConflict(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (731 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testAddLabProcedureWithoutLabTech(edu.ncsu.csc.itrust.http.LabProceduresTest) (1436 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testLabProcedureInTransitToReceived(edu.ncsu.csc.itrust.http.LabProceduresTest) (1154 ms)</li><li>edu.ncsu.csc.itrust.http.CreditCardValidatorTest.testGoodDiscovers(edu.ncsu.csc.itrust.http.CreditCardValidatorTest) (698 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testViewApptWithConflicts(edu.ncsu.csc.itrust.http.AppointmentTest) (636 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientTen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (542 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdverseImmuEventTest.testReport(edu.ncsu.csc.itrust.http.ReportAdverseImmuEventTest) (849 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testDocumentImmunization(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.SecureMIDNFRTest.testMIDShown1(edu.ncsu.csc.itrust.http.SecureMIDNFRTest) (613 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewDiagnoses(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (805 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (820 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_FluShotNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (830 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadInvalidField(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1000 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogByDate(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (860 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptSameEndStartTimes(edu.ncsu.csc.itrust.http.AppointmentTest) (1125 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLog2(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (666 ms)</li><li>edu.ncsu.csc.itrust.http.PatientHTTPTest.testViewPrescriptionRecords2(edu.ncsu.csc.itrust.http.PatientHTTPTest) (813 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentRequestTest.testHCPAppointmentRequestNoConflictApprove(edu.ncsu.csc.itrust.http.AppointmentRequestTest) (1083 ms)</li><li>edu.ncsu.csc.itrust.action.EditRepresentativesActionTest.testNotAPatient(edu.ncsu.csc.itrust.action.EditRepresentativesActionTest) (189 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario1(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1230 ms)</li><li>edu.ncsu.csc.itrust.http.AddPatientTest.testInvalidPatientEmail(edu.ncsu.csc.itrust.http.AddPatientTest) (914 ms)</li><li>edu.ncsu.csc.itrust.http.FindExpertTest.testInvalidPatientZip(edu.ncsu.csc.itrust.http.FindExpertTest) (931 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumferenceNotNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1151 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchForHCPSurveyResults1(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (713 ms)</li><li>edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest.testViewHCPDetails(edu.ncsu.csc.itrust.http.ExperiencedLHCPsUseCaseTest) (1075 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testEditApptConflictCancel(edu.ncsu.csc.itrust.http.AppointmentTest) (1407 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario4(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1183 ms)</li><li>edu.ncsu.csc.itrust.http.PHIRecordTest.testCreatePHIRecord6(edu.ncsu.csc.itrust.http.PHIRecordTest) (760 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadRequiredFieldMissing(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1013 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTest.testAddApptInvalidDate(edu.ncsu.csc.itrust.http.AppointmentTest) (1089 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testInvalidHeadCircumference4DigitNumber(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1096 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario4(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1273 ms)</li><li>edu.ncsu.csc.itrust.http.MonitorAdverseEventTest.testRemoveImmunizationAdverseEventReport(edu.ncsu.csc.itrust.http.MonitorAdverseEventTest) (813 ms)</li><li>edu.ncsu.csc.itrust.http.UploadPatientFileTest.testHCPPatientUploadValidData(edu.ncsu.csc.itrust.http.UploadPatientFileTest) (1058 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testHPCViewReferralsEdit(edu.ncsu.csc.itrust.http.ReferralsTest) (912 ms)</li><li>edu.ncsu.csc.itrust.action.EditRepresentativesActionTest.testRemoveNothing(edu.ncsu.csc.itrust.action.EditRepresentativesActionTest) (195 ms)</li><li>edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest.testViewImmunizationRecord(edu.ncsu.csc.itrust.http.ImmunizationUseCasesTest) (1177 ms)</li><li>edu.ncsu.csc.itrust.http.ViewAccessLogTest.testViewAccessLogByRole(edu.ncsu.csc.itrust.http.ViewAccessLogTest) (833 ms)</li><li>edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest.testViewExpired1(edu.ncsu.csc.itrust.http.ViewExpiredPrescriptionsTest) (675 ms)</li><li>edu.ncsu.csc.itrust.http.CalendarTest.testHCPViewAppointmentCalendar(edu.ncsu.csc.itrust.http.CalendarTest) (1250 ms)</li><li>edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest.testAddLOINCFileNoIgnore(edu.ncsu.csc.itrust.http.EditLOINCDataHTTPTest) (1039 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest.testReport(edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest) (712 ms)</li><li>edu.ncsu.csc.itrust.http.CreateLTSpecTest.testSpecialtyOnForm(edu.ncsu.csc.itrust.http.CreateLTSpecTest) (711 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testSecondEntry(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.DrugInteractionTest.testRecordDrugInteraction(edu.ncsu.csc.itrust.http.DrugInteractionTest) (675 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testLinkToOfficeVisit(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (898 ms)</li><li>edu.ncsu.csc.itrust.http.ViewMyRecordsTest.testPatientViewsHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.ViewMyRecordsTest) (593 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testPatientViewUpcomingAppointments(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (713 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics5YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1210 ms)</li><li>edu.ncsu.csc.itrust.http.ReferralsTest.testPatientSendsMessageToReceivingHCP(edu.ncsu.csc.itrust.http.ReferralsTest) (1047 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testDocumentOfficeVisit6(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1049 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testViewWeightAndPedometerReports(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (890 ms)</li><li>edu.ncsu.csc.itrust.action.ActivityFeedActionTest.testGetTransactions(edu.ncsu.csc.itrust.action.ActivityFeedActionTest) (400 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testUAPAddReportDeleteCannotReport(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (1085 ms)</li><li>edu.ncsu.csc.itrust.http.DeactivatePatientTest.testHCPDeactivatePatient(edu.ncsu.csc.itrust.http.DeactivatePatientTest) (1171 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrendsEpidemic_InvalidThreshold(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (823 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics4MonthOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1388 ms)</li><li>edu.ncsu.csc.itrust.http.GetPatientIDTest.testSelectPatientButton(edu.ncsu.csc.itrust.http.GetPatientIDTest) (905 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientFourteen(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (587 ms)</li><li>edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest.testAddBasicHealthMetrics2YearOld(edu.ncsu.csc.itrust.http.DocumentOfficeVisitTest) (1519 ms)</li><li>edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest.testReportSeenHCPs1(edu.ncsu.csc.itrust.http.DesignateAndViewHCPUseCaseTest) (849 ms)</li><li>edu.ncsu.csc.itrust.http.BasicHealthInfoTest.testBasicHealthViewed(edu.ncsu.csc.itrust.http.BasicHealthInfoTest) (1439 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testAcceptanceScenario5(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1178 ms)</li><li>edu.ncsu.csc.itrust.http.CreateHCPTest.testCreateValidHCP(edu.ncsu.csc.itrust.http.CreateHCPTest) (862 ms)</li><li>edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest.testViewPatientOfficeVisit(edu.ncsu.csc.itrust.http.ViewRecordsUseCaseTest) (1183 ms)</li><li>edu.ncsu.csc.itrust.action.EditRepresentativesActionTest.testCannotRepresentSelf(edu.ncsu.csc.itrust.action.EditRepresentativesActionTest) (199 ms)</li><li>edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest.testReportAdverseEventsButton(edu.ncsu.csc.itrust.http.ReportAdversePrescriptionTest) (683 ms)</li><li>edu.ncsu.csc.itrust.http.EditDemographicsTest.testEditDemographics3(edu.ncsu.csc.itrust.http.EditDemographicsTest) (845 ms)</li><li>edu.ncsu.csc.itrust.http.ActivityFeedTest.testUpdateActivityFeed(edu.ncsu.csc.itrust.http.ActivityFeedTest) (2592 ms)</li><li>edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest.testPrescriptionNoInstructions(edu.ncsu.csc.itrust.http.PrescriptionRefactoringUseCaseTest) (1350 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testDownloadButton(edu.ncsu.csc.itrust.http.GroupReportTest) (947 ms)</li><li>edu.ncsu.csc.itrust.http.ManageHospitalListingTest.testUpdateHospital(edu.ncsu.csc.itrust.http.ManageHospitalListingTest) (736 ms)</li><li>edu.ncsu.csc.itrust.http.AddNDTylenolTest.testCreateValidHCP(edu.ncsu.csc.itrust.http.AddNDTylenolTest) (749 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_NoDiagnosisSelected(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (772 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAddDupAllergy(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2906 ms)</li><li>edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest.testPatientEleven(edu.ncsu.csc.itrust.http.PatientsWithExpiringPrescriptionsTest) (575 ms)</li><li>edu.ncsu.csc.itrust.http.GroupReportTest.testViewGroupReportPersonnel(edu.ncsu.csc.itrust.http.GroupReportTest) (845 ms)</li><li>edu.ncsu.csc.itrust.http.EmergencyUseCaseTest.testERViewEmergencyReport1(edu.ncsu.csc.itrust.http.EmergencyUseCaseTest) (970 ms)</li><li>edu.ncsu.csc.itrust.http.LabProceduresTest.testAddLabProcedureWithLabTech(edu.ncsu.csc.itrust.http.LabProceduresTest) (1373 ms)</li><li>edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest.testNoProblemsDependentLog(edu.ncsu.csc.itrust.action.ViewMyAccessLogActionTest) (240 ms)</li><li>edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest.testSearchByHospitalSurveyResults2(edu.ncsu.csc.itrust.http.PhysicianSatisfactionUseCaseTest) (851 ms)</li><li>edu.ncsu.csc.itrust.http.PersonnelUseCaseTest.testEditERDetails(edu.ncsu.csc.itrust.http.PersonnelUseCaseTest) (884 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testAllergy(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (2722 ms)</li><li>edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest.testReportPatientWeightAndPedometer(edu.ncsu.csc.itrust.http.TelemonitoringUseCaseTest) (778 ms)</li><li>edu.ncsu.csc.itrust.http.AppointmentTypeTest.testScheduleAppointment(edu.ncsu.csc.itrust.http.AppointmentTypeTest) (1039 ms)</li><li>edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest.testAcceptanceScenario2(edu.ncsu.csc.itrust.http.PatientInstructionsUseCaseTest) (1000 ms)</li><li>edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest.testInvalidPatientBirthDates(edu.ncsu.csc.itrust.http.PersonalHealthRecordsUseCaseTest) (1142 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_ImmunizationNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (996 ms)</li><li>edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest.testViewDiagnosisTrends_RegionNotLess(edu.ncsu.csc.itrust.http.ViewDiagnosisStatisticsTest) (867 ms)</li><li>edu.ncsu.csc.itrust.http.EditApptTest.testSetPassedDate(edu.ncsu.csc.itrust.http.EditApptTest) (910 ms)</li><li>edu.ncsu.csc.itrust.http.GetVisitRemindersTest.testGetVisitReminders_DiagnosedCareNeeders(edu.ncsu.csc.itrust.http.GetVisitRemindersTest) (861 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>

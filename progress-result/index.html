@@ -1,0 +1,246 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width : 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+
+<h3>Project Summary</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>308</td>
+            <td>92% <div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">11666/12698</div></div></td>
+            <td>89% <div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">5417/6089</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Package</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust/index.html">edu.ncsu.csc.itrust</a></td>
+            <td>12</td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">200/217</div></div></td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">117/135</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.action/index.html">edu.ncsu.csc.itrust.action</a></td>
+            <td>88</td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">3237/3530</div></div></td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">1672/1955</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.action.base/index.html">edu.ncsu.csc.itrust.action.base</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">55/55</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">16/16</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.beans/index.html">edu.ncsu.csc.itrust.beans</a></td>
+            <td>43</td>
+            <td><div class="coveragePercentage">95% </div><div class="coverage_bar"><div class="coverage_complete" style="width:95%"></div><div class="coverage_ledgend">1560/1641</div></div></td>
+            <td><div class="coveragePercentage">88% </div><div class="coverage_bar"><div class="coverage_complete" style="width:88%"></div><div class="coverage_ledgend">579/658</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.beans.forms/index.html">edu.ncsu.csc.itrust.beans.forms</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">117/131</div></div></td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">39/40</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.beans.loaders/index.html">edu.ncsu.csc.itrust.beans.loaders</a></td>
+            <td>36</td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">702/717</div></div></td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">539/549</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.charts/index.html">edu.ncsu.csc.itrust.charts</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">191/215</div></div></td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">103/144</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.dao/index.html">edu.ncsu.csc.itrust.dao</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">52/54</div></div></td>
+            <td><div class="coveragePercentage">95% </div><div class="coverage_bar"><div class="coverage_complete" style="width:95%"></div><div class="coverage_ledgend">38/40</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.dao.mysql/index.html">edu.ncsu.csc.itrust.dao.mysql</a></td>
+            <td>37</td>
+            <td><div class="coveragePercentage">91% </div><div class="coverage_bar"><div class="coverage_complete" style="width:91%"></div><div class="coverage_ledgend">3784/4165</div></div></td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">1515/1654</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.datagenerators/index.html">edu.ncsu.csc.itrust.datagenerators</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">352/384</div></div></td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">208/222</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.enums/index.html">edu.ncsu.csc.itrust.enums</a></td>
+            <td>8</td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">281/302</div></div></td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">65/69</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.exception/index.html">edu.ncsu.csc.itrust.exception</a></td>
+            <td>7</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">62/62</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">32/32</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.report/index.html">edu.ncsu.csc.itrust.report</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">285/307</div></div></td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">100/104</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.risk/index.html">edu.ncsu.csc.itrust.risk</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">99% </div><div class="coverage_bar"><div class="coverage_complete" style="width:99%"></div><div class="coverage_ledgend">71/72</div></div></td>
+            <td><div class="coveragePercentage">97% </div><div class="coverage_bar"><div class="coverage_complete" style="width:97%"></div><div class="coverage_ledgend">30/31</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.risk.factors/index.html">edu.ncsu.csc.itrust.risk.factors</a></td>
+            <td>11</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">83/83</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">55/55</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.server/index.html">edu.ncsu.csc.itrust.server</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">97% </div><div class="coverage_bar"><div class="coverage_complete" style="width:97%"></div><div class="coverage_ledgend">73/75</div></div></td>
+            <td><div class="coveragePercentage">23% </div><div class="coverage_bar"><div class="coverage_complete" style="width:23%"></div><div class="coverage_ledgend">5/22</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.serverutils/index.html">edu.ncsu.csc.itrust.serverutils</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">3/3</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">1/1</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.tags/index.html">edu.ncsu.csc.itrust.tags</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">74/74</div></div></td>
+            <td><div class="coveragePercentage">53% </div><div class="coverage_bar"><div class="coverage_complete" style="width:53%"></div><div class="coverage_ledgend">18/34</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.testutils/index.html">edu.ncsu.csc.itrust.testutils</a></td>
+            <td>6</td>
+            <td><div class="coveragePercentage">76% </div><div class="coverage_bar"><div class="coverage_complete" style="width:76%"></div><div class="coverage_ledgend">63/83</div></div></td>
+            <td><div class="coveragePercentage">71% </div><div class="coverage_bar"><div class="coverage_complete" style="width:71%"></div><div class="coverage_ledgend">32/45</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./edu.ncsu.csc.itrust.validate/index.html">edu.ncsu.csc.itrust.validate</a></td>
+            <td>29</td>
+            <td><div class="coveragePercentage">80% </div><div class="coverage_bar"><div class="coverage_complete" style="width:80%"></div><div class="coverage_ledgend">421/528</div></div></td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">253/283</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.31
+
+</body>
+</html>
